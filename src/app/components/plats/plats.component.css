@@ -1,0 +1,198 @@
+h1 {
+  font-family: 'Open Sans', sans-serif;
+  filter: drop-shadow(2px 2px 7px rgb(167, 167, 167));
+}
+
+.container-fluid {
+  /* margin: 10%; */
+  background: #f5f5f5;
+  height: calc(100vh - 93px);
+}
+
+.nav-item {
+  /* cursor: pointer; */
+  /* margin-right: 2%; */
+  font-size: 1.3em;
+  font-weight: 600;
+  text-align: center;
+}
+
+.tabsNav {
+  text-align: center;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 37px;
+  /* background-color: #e2e2e2; */
+  /* border-radius: 10px; */
+  display: inline-block;
+}
+
+li {
+  text-align: center;
+  display: inline-block;
+}
+
+.nav-link-custom {
+  background-color: #dfdfdf;
+  color: rgb(104, 104, 104);
+  border-radius: 20px;
+  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+}
+
+.nav-link-all.active {
+  filter: drop-shadow(5px 5px 10px rgb(194, 194, 194));
+  background-color: #3a3a3a;
+  color: rgb(235, 235, 235);
+  font-weight: 600;
+}
+
+.nav-link:hover {
+  filter: drop-shadow(2px 2px 7px rgb(194, 194, 194));
+}
+
+.nav-link-custom.active {
+  filter: drop-shadow(5px 5px 10px rgb(194, 194, 194));
+  background-color: #3a3a3a;
+  color: rgb(235, 235, 235);
+  font-weight: 600;
+}
+
+.tab-pane {
+  /* display: flex; */
+  text-align: center;
+}
+
+.tab-pane.active {
+  animation: appear 1.2s ease-in-out;
+  /* animation: scale-up-center 0.4s ease-in-out; */
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.card {
+  margin: 15px;
+  filter: drop-shadow(5px 5px 10px rgb(194, 194, 194));
+  width: 16rem;
+  height: -moz-fit-content;
+  /* max-width: 15rem; */
+  display: inline-block;
+  border-radius: 10px;
+  transition: .5s ease;
+}
+
+.card:hover
+{
+  -webkit-transform: translateY(-1px);
+  transform: translateY(-10px);
+  -webkit-box-shadow: 0 6px 25px rgba(0,0,0,.1);
+  box-shadow: 0 6px 25px rgba(0,0,0,.1);
+}
+
+/* .card .card-img-top:hover { */
+/* opacity: 0.2; */
+/* -webkit-filter: blur(3px) opacity(.8); */
+/* filter: blur(3px) opacity(.8); */
+/* } */
+
+.card-img-top {
+  height: 150px;
+  opacity: 0.85;
+  transition: .5s ease;
+  /* cursor: pointer; */
+}
+
+.card-title-custom {
+  text-align: center;
+  font-size: 1.15em;
+  font-weight: 500;
+  min-height: 62px;
+}
+
+/* 
+.card-title-custom :hover {
+  cursor: pointer;
+} */
+
+.card-text {
+  font-size: 0.9em;
+}
+
+.btn-add {
+  border-radius: 33px;
+  font-weight: bolder;
+  margin-bottom: 15px;
+  opacity: 0.75;
+}
+
+.btn-more {
+  border-radius: 33px;
+  font-weight: bolder;
+  margin-bottom: 15px;
+  opacity: 0.75;
+}
+
+.price {
+  background-color: #f5f5f5;
+  box-shadow: inset 0px 0px 8px rgba(175, 175, 175, 0.9);
+  border-radius: 33px;
+  padding: 9px;
+  width: fit-content;
+  margin: 0 auto;
+  /* margin-bottom: 15px; */
+  font-size: 1.15em;
+  font-weight: 700;
+}
+
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  margin: 15px 0;
+}
+
+.radio-button {
+  margin: 5px;
+}
+
+.img-meal {
+  border: 3px solid rgb(105, 105, 105);
+  border-radius: 50%;
+  height: 150px;
+  width: 150px;
+  opacity: 0.7;
+  display: block;
+  margin: auto;
+  margin-bottom: 10px;
+}
+
+.full {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.quantity {
+  width: 100%;
+}
+
+/* Pour le responsive */
+@media (max-width: 768px) {
+  .nav-item {
+    margin-bottom: 4px;
+  }
+}
+
+@media (max-width: 438px) {
+  .nav-item {
+    margin: 7px 0!important;
+  }
+}

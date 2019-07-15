@@ -1,0 +1,111 @@
+.fas {
+  justify-content: center;
+  margin: auto;
+}
+
+.navbar {
+  /* border-bottom: 2px solid black; */
+  background-color: #cb2a3f;
+}
+
+.img {
+  width: 500px;
+  height: 400px;
+  background-color: transparent;
+}
+
+.navbar-brand,
+.navbar-nav li a {
+  font-family: "Open Sans", sans-serif;
+  line-height: 70px;
+  height: 70px;
+  padding-top: 0;
+}
+
+.imgavatar {
+  border: 3px solid #ebebeb;
+  border-radius: 1.7rem;
+  max-height: 3.5em;
+  max-width: 3.5em;
+  cursor: pointer;
+}
+
+.imgpanier {
+  margin-left: 40px;
+  margin-right: 35px;
+  max-height: 3em;
+  max-width: 3em;
+}
+
+.header-link {
+  margin-left: 20px;
+  font-size: 1.3em;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+.header-link.active {
+  color: #e1e1e1;
+}
+
+.header-link-user {
+  font-size: 1.3em;
+}
+
+.headername {
+  font-weight: 600;
+  font-size: 1.3em;
+  height: 100%;
+  line-height: -moz-block-height;
+}
+
+.dropdown-item {
+  font-size: 1.2em;
+}
+
+a {
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+/* Pour le responsive */
+@media (min-width: 1200px) {
+  .navbar-brand,
+  .navbar-nav li a {
+    margin-left: 90px;
+  }
+}
+
+@media (max-width: 992px) {
+  .navbar-nav > li {
+    text-align: center;
+    height: 55px;
+  }
+
+  .nav-item > a {
+    height: 45px;
+    margin: 0px !important;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    text-align: center;
+  }
+
+  .navbar-nav {
+    margin-left: 0px !important;
+    align-items: center;
+  }
+
+  .navButtons {
+    margin-top: 15px;
+  }
+
+  .collapse > div {
+    text-align: center;
+  }
+
+  .dropdown-item {
+    text-align: center;
+  }
+
+  .imgpanier {
+    padding-top: 8px;
+    margin: 0;
+  }
+}

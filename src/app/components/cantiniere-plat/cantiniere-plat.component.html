@@ -1,0 +1,91 @@
+<div class="container">
+  <div class="row">
+    <ul id="tabsNav" class="tabsNav nav">
+      <a routerLink="/cantiniereRecap" class="nav-item nav-link nav-link-custom small text-uppercase col-12 col-xl-3 mb-2">Récapitulatif</a>
+      <a routerLink="/cantinierePlat" class="nav-item nav-link nav-link-custom small text-uppercase col-12 col-xl-3 mb-2 active">Plats</a>
+      <a routerLink="/cantiniereMenu" class="nav-item nav-link nav-link-custom small text-uppercase col-12 col-xl-3 mb-2">Menus</a>
+      <a routerLink="/user-account" class="nav-item nav-link nav-link-custom small text-uppercase col-12 col-xl-3 mb-2">utilisateurs</a>
+    </ul>
+ </div>
+ <form (ngSubmit)="creerPlat(f)" #f="ngForm">
+  <div class="form-group">
+    <label for="recipient-name" class="col-form-label">Label:</label>
+    <input type="text" class="form-control" name="label" ngModel>
+  </div>
+  <div class="form-group">
+    <label for="message-text" class="col-form-label">Description:</label>
+    <textarea class="form-control" name="description" ngModel></textarea>
+  </div>
+  <div class="form-group">
+    <label for="recipient-name" class="col-form-label">Prix:</label>
+    <input type="number" class="form-control" name="priceDF" ngModel>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+    <button type="submit" class="btn btn-success">Ajouter Plat</button>
+  </div>
+</form> 
+
+<div class="tab">
+    <ul id="tabsNav" class="tabsNav nav">
+        <li class="nav-item nav-link nav-link-custom-tab small text-uppercase active mr-3"
+          [class.active]="viewMode == 'tabToday'" rel="tabToday" (click)="viewMode ='tabToday'">Aujourd'hui
+        </li>
+        <li class="nav-item nav-link nav-link-custom-tab small text-uppercase active ml-3"
+          [class.active]="viewMode == 'tabThisWeek'" rel="tabThisWeek" (click)="viewMode ='tabThisWeek'">Cette semaine
+        </li>
+      </ul>
+    <div id="tabsContent" class="tab-content tabsContent" [ngSwitch]="viewMode">
+        <div id="tabToday" *ngSwitchCase="'tabToday'" class="tab-pane fade active show">
+  
+  <table class="table table-hover" >
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Label</th>   
+        <th scope="col">Action</th>   
+      </tr>
+    </thead>
+    <tbody *ngFor="let plat of listPlatsToday; let i = index">
+      <tr>
+        <th scope="row">{{plat.id}}</th>
+        <td>{{plat.label}}</td>
+        <td>
+          <button class="btn btn-warning" [routerLink]="['/platDetail', plat.id]">Editer</button>&nbsp; &nbsp;
+          <button class="btn btn-danger" (click)="deletePlat(plat.id)">Supprimer</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div> 
+    <div id="tabsContent" class="tab-content tabsContent" [ngSwitch]="viewMode">
+        <div id="tabThisWeek" *ngSwitchCase="'tabThisWeek'" class="tab-pane fade active show">
+  <table class="table table-hover" >
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Label</th>   
+        <th scope="col">Action</th>   
+      </tr>
+    </thead>
+    <tbody *ngFor="let plat of listPlatsWeek; let i = index">
+      <tr>
+        <th scope="row">{{plat.id}}</th>
+        <td>{{plat.label}}</td>
+        <td>
+          <button class="btn btn-warning" [routerLink]="['/platDetail', plat.id]">Editer</button>&nbsp; &nbsp;
+          <button class="btn btn-danger" (click)="deletePlat(plat.id)">Supprimer</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div> 
+</div>
+</div>
+
+  
+</div>
+  
+
+
+  

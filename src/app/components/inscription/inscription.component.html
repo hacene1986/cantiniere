@@ -1,0 +1,139 @@
+<div class="container-fluid">
+  <div class="container">
+    <button type="button" class="close float-right" aria-describedby="modal-title" (click)="closeModal()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <h2 class="inscription" style="margin-bottom: 30px;">
+      Inscription
+    </h2>
+
+    <!-- Debut du formulaire d'inscription -->
+    <form (ngSubmit)="creerUtilisateur(f)" #f="ngForm" for="validerInscription" class="formulaire" novalidate>
+      <!-- <div class="form-row align-items-center">
+          <div class="col-md-6 mb-3">
+              <label class="mr-sm-2" for="inlineFormCustomSelect">Sexe</label>
+              <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" placeholder="Civilité.." name="sexe"
+                  ngModel required>
+                  <option value="1">H</option>
+                  <option value="2">F</option>
+              </select>
+          </div>
+          <div class="col-md-6 mb-3">
+              <label for="validationCustom01">Date de naissance</label>
+              <input type="date" class="form-control " id="validationCustom01" placeholder="date" value="date"
+                  name="dateDeNaissance" ngModel required>
+          </div>
+      </div> -->
+
+      <div class="form-row">
+        <div class="col-md-6 mb-2">
+          <label for="validationCustom02">Prénom</label>
+          <input type="text" class="form-control" id="validationCustom02" placeholder="Prénom" value="Prénom"
+            name="prenom" ngModel required />
+        </div>
+        <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+          <div *ngIf="name.errors">
+            Le prénom est requis.
+          </div>
+        </div>
+        <div class="col-md-6 mb-2">
+          <label for="validationCustom03">Nom</label>
+          <input type="text" class="form-control" id="validationCustom03" placeholder="Nom" value="Nom" name="nom"
+            ngModel required />
+        </div>
+      </div>
+
+      <!-- <div class="form-row">
+          <div class="col-md-4 mb-3">
+              <label for="validationCustom05">Adresse</label>
+              <input type="text" class="form-control" id="validationCustom02" placeholder="Adresse" name="rue" ngModel
+                  required>
+              <div class="invalid-feedback">
+                  Veuillez entrer votre adresse.
+              </div>
+          </div>
+
+          <div class="col-md-4 mb-3">
+              <label for="validationCustom07">Code postal</label>
+              <input type="text" class="form-control" id="validationCustom07" placeholder="Cp" name="cp" ngModel
+                  required>
+              <div class="invalid-feedback">
+                  Veuillez indiquer un code postal.
+              </div>
+          </div>
+          <div class="col-md-4 mb-3">
+              <label for="validationCustom06">Ville</label>
+              <input type="text" class="form-control" id="validationCustom06" placeholder="Ville" name="ville" ngModel
+                  required>
+              <div class="invalid-feedback">
+                  Veuillez entrer une ville existante.
+              </div>
+          </div>
+      </div> -->
+
+      <div class="form-row">
+        <div class="col-md-12 mb-2">
+          <label for="validationCustom08">Email</label>
+          <input type="text" class="form-control" id="validationCustom08" placeholder="Email" name="mail" ngModel
+            required />
+          <div class="invalid-feedback">
+            Veuillez entrer un email valide.
+          </div>
+        </div>
+        <!-- <div class="col-md-6 mb-3">
+              <label for="validationCustom09">Téléphone</label>
+              <input type="text" class="form-control" id="validationCustom09" placeholder="Téléphone" name="tel"
+                  ngModel required>
+              <div class="invalid-feedback">
+                  Veuillez entrer un numero de téléphone.
+              </div>
+          </div> -->
+      </div>
+
+      <div class="form-row">
+        <div class="col-md-6">
+          <label for="inputPassword6">Mot de passe</label>
+          <input type="password" id="inputPassword6" class="form-control mx-sm-3" class="form-control"
+            id="inputPassword6" aria-describedby="passwordHelpInline" name="password" placeholder="Mot de passe"
+            ngModel />
+          <div class="invalid-feedback">
+            Veuillez entrer un mot de passe valide.
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <label for="inputPassword6">Confirmation mot de passe</label>
+          <input type="password" id="inputPassword7" class="form-control mx-sm-3" class="form-control"
+            id="inputPassword7" aria-describedby="passwordHelpInline" name="password" placeholder="Mot de passe"
+            ngModel />
+          <div class="invalid-feedback">
+            Veuillez entrer un mot de passe valide.
+          </div>
+          <small id="passwordHelpInline" class="text-muted"> </small>
+        </div>
+      </div>
+      <small id="passwordHelpInline" class="text-muted">
+        Le mot de passe doit contenir au minimum 8 caractères.
+      </small>
+      <br />
+
+      <!-- <div class="form-group">
+          <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="invalidCheck" name="invalidCheck" required>
+              <label class="form-check-label" for="invalidCheck">
+                  J'accepte les Conditions Générales de Vente et d'Utilisation.
+              </label>
+              <div class="invalid-feedback">
+                  Vous devez accepter les Conditions Générales de Vente et d'Utilisation avant de valider votre
+                  inscription.
+              </div>
+          </div>
+      </div> -->
+
+      <!-- <button class="btn btn-dark float-left buttons mt-4 mb-4" (click)=" closeModal()">Retour</button> -->
+      <button class="btn search-btn btn-test btn-block float-right mt-4" type="submit">
+        Valider
+      </button>
+    </form>
+  </div>
+</div>

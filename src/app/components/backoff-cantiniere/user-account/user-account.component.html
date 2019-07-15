@@ -1,0 +1,98 @@
+<body>
+  <div class="container">
+    <div class="row">
+      <ul id="tabsNav" class="tabsNav nav">
+        <a
+          class="nav-item nav-link nav-link-custom small text-uppercase col-12 col-xl-3 mb-2"
+          routerLink="/cantiniereRecap"
+          >Récapitulatif</a
+        >
+        <a
+          class="nav-item nav-link nav-link-custom small text-uppercase col-12 col-xl-3 mb-2"
+          routerLink="/cantinierePlat"
+          >Plats</a
+        >
+        <a
+          class="nav-item nav-link nav-link-custom small text-uppercase col-12 col-xl-3 mb-2"
+          routerLink="/cantiniereMenu"
+          >Menus</a
+        >
+        <a
+          class="nav-item nav-link nav-link-custom small text-uppercase col-12 col-xl-3 mb-2 active"
+          [routerLink]="['/user-account']"
+          >Utilisateurs</a
+        >
+      </ul>
+    </div>
+    <div class="row mt-5 text-center">
+      <div class="col-lg-4">
+        <label class="searchName" for="">Votre recherche: </label>
+      </div>
+      <div class="col-lg-4">
+        <input
+          type="text"
+          class="searchInput"
+          size="30"
+          [(ngModel)]="searchText"
+        />
+      </div>
+      <div class="col-lg-4">
+        <button type="button" class="btn search-btn">Rechercher</button>
+      </div>
+    </div>
+
+    <div class="row mt-5">
+      <div class="col-md-12">
+        <table class="table">
+          <thead>
+            <tr>
+              <th class="table-head" scope="col">ID</th>
+              <th class="table-head" scope="col">Prénom</th>
+              <th class="table-head" scope="col">Nom</th>
+              <th class="table-head hide-col" scope="col">Email</th>
+              <th class="table-head" scope="col">Détails</th>
+            </tr>
+          </thead>
+          <br />
+          <tbody
+            *ngFor="
+              let user of users
+                | search
+                  : {
+                      firstname: searchText,
+                      name: searchText,
+                      email: searchText
+                    };
+              let i = index
+            "
+          >
+            <tr>
+              <th class="table-body" scope="row">{{ user.id }}</th>
+              <th class="table-body" scope="row">{{ user.firstname }}</th>
+              <th class="table-body" scope="row">{{ user.name }}</th>
+              <th class="table-body hide-col" scope="row">{{ user.email }}</th>
+              <th class="table-body" scope="row">
+                <a
+                  class="chevron-icon"
+                  [routerLink]="['/user-details', user.id]"
+                >
+                  <i class="fas fa-2x fa-chevron-circle-down"></i>
+                </a>
+              </th>
+            </tr>
+          </tbody>
+          <br />
+          <!-- <tbody>
+              <tr>
+                <th class="table-body" scope="row">Jean</th>
+                <th class="table-body" scope="row">Choucroute</th>
+                <th class="table-body hide-col" scope="row">jchoucroute@gmail.com</th>
+                <th class="table-body" scope="row"><a class="chevron-icon" href=""><i
+                      class="fas fa-2x fa-chevron-circle-down"></i></a></th>
+              </tr>
+            </tbody>  -->
+        </table>
+      </div>
+    </div>
+  </div>
+</body>

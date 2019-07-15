@@ -1,0 +1,77 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+/* You can add global styles to this file, and also import other style files */
+/* body {
+  margin: 0;
+}
+
+header ul {
+  display: flex;
+  list-style-type: none;
+  justify-content: space-between;
+}
+
+header a {
+  text-decoration: none;
+  color: #4d2d31;
+}
+
+header a:hover {
+  color: #fefdfd;
+}
+
+header #acceuil {
+  color: #fefdfd;
+}
+
+header {
+  font-size: 25px;
+  background-color: #cb2a3f;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0;
+}
+
+header nav {
+  min-width: 450px;
+}
+
+header div {
+  display: flex;
+  justify-content: space-between;
+  min-width: 155px;
+}
+
+app-body-acceuil {
+  margin: 0;
+  background-color: #0f0f0f;
+}
+
+app-header {
+  margin: 0;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  background: url("assets/img/food-acceuil.jpg") fixed;
+  opacity: 0.8;
+
+
+  height: 1220px;
+} */
+
+/* .body p {
+  opacity: 1;
+  color: white;
+  font-size: 90px;
+} */
+
+.cdk-overlay-container,
+.cdk-overlay-pane {
+  z-index: 9999 !important;
+}

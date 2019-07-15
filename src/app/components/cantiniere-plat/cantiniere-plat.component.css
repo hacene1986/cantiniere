@@ -1,0 +1,150 @@
+.sel{
+    font-size: 20px;
+    font-weight: bolder;
+    color: rgb(216, 211, 211);
+    padding: 5px 50px 5px 50px;
+    border: 3px solid;  
+    border-radius: 20px 0;
+    text-align: center;
+    text-align-last: center;
+    background-image: url(https://wallpapers-house.com/data/out/10/wallpaper2you_373647.jpg)
+  }
+  
+  .sel:hover{
+    border-color: rgba(211, 40, 63, 1);
+  }
+  .form-inline{
+    text-align: center;
+   
+  }
+  .valid{
+     text-align: center;
+     padding: 70px;
+  }
+  
+  .valider{
+     background-color: rgba(211, 40, 63, 1);
+     padding: 10px 40px 10px 40px;
+     border-radius: 20px;
+     border: none;
+  }
+  /**************************/
+  
+  
+  .nav-item {
+    cursor: pointer;
+    font-size: 1.3em;
+    font-weight: 600;
+    text-align: center;
+  }
+  
+  .tabsNav {
+    text-align: center;
+    margin: 0 auto;
+    width: 100%;
+   /* max-width: 100%;*/
+    margin-bottom: 37px;
+    display: inline-block;
+    padding: 45px;
+  }
+  
+  a {
+    text-align: center;
+    display: inline-block;
+  }
+  
+  .nav-link-custom {
+    background-color: #dfdfdf;
+    color: rgb(17, 14, 14);
+    border-radius: 20px;
+   /* font-weight: 600;*/
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  
+  
+  .nav-link:hover {
+    filter: drop-shadow(2px 2px 7px rgb(194, 194, 194));
+    background-color: #cb2a3f;
+    color: white
+  }
+  
+  .nav-link-custom.active {
+    filter: drop-shadow(5px 5px 10px rgb(194, 194, 194));
+    background-color: #3a3a3a;
+    color: rgb(235, 235, 235);
+    font-weight: 600;
+  }
+  
+  
+  .tab-pane {
+    /* display: flex; */
+    text-align: center;
+  }
+  
+  
+  .tab{
+      text-align: center
+  }
+  
+  .selMenu{
+      padding: 20px;
+  }
+  
+  .form{
+      padding-bottom: 50px
+  }
+.tab{
+  padding: 60px;
+}
+
+.tabsNav {
+  text-align: center;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 37px;
+  /* background-color: #e2e2e2; */
+  /* border-radius: 10px; */
+  display: inline-block;
+}
+
+li {
+  text-align: center;
+  display: inline-block;
+}
+
+.nav-link-custom-tab {
+  background-color: #dfdfdf;
+  color: rgb(104, 104, 104);
+  border-radius: 20px;
+  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.nav-link-all {
+  background-color: #ffcdcd;
+  color: rgb(104, 104, 104);
+  border-radius: 20px;
+  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+}
+
+.nav-link-all.active {
+  filter: drop-shadow(5px 5px 10px rgb(194, 194, 194));
+  background-color: #3a3a3a;
+  color: rgb(235, 235, 235);
+  font-weight: 600;
+}
+
+.nav-link:hover {
+  filter: drop-shadow(2px 2px 7px rgb(194, 194, 194));
+}
+
+.nav-link-custom-tab.active {
+  filter: drop-shadow(5px 5px 10px rgb(194, 194, 194));
+  background-color: #3a3a3a;
+  color: rgb(235, 235, 235);
+  font-weight: 600;
+}

@@ -1,0 +1,86 @@
+ul {
+  list-style-type: none;
+  margin: 0 auto;
+  padding: 0;
+  overflow: hidden;
+  background-color: white;
+  font-size: 20px;
+}
+
+li {
+  float: left;
+  border: 3px solid black;
+}
+
+li a {
+  display: block;
+  padding: 14px 16px;
+  text-decoration: none;
+  color: black;
+  padding-right: 70px;
+  padding-left: 70px;
+}
+
+.active {
+  background-color: #f19092;
+  font-weight: bold;
+}
+
+.top-margin {
+  margin-top: 100px;
+}
+
+.user-details {
+  font-weight: normal;
+  margin: 0 auto;
+}
+
+.cagnotte-border {
+  /* width: 50%; */
+  border: 3px solid black;
+  border-radius: 25px;
+  padding: 10px;
+  margin: 0 auto;
+}
+.my-account {
+  border: 3px solid black;
+  border-radius: 25px;
+  padding: 10px;
+  margin-top: 35px !important;
+  margin: 0 auto;
+}
+
+.btn {
+  background-color: #d3283f;
+  color: white;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
+  border-radius: 23px;
+}
+
+.pending-order {
+  margin-top: 90px;
+}
+
+.order-recap {
+  margin-top: 20px;
+  border: 3px solid black;
+  border-radius: 25px;
+  padding: 80px;
+}
+
+/* MEDIA QUERIES */
+
+@media (max-width: 991px) {
+  .cagnotte-border {
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 767px) {
+  .user-details {
+    margin-bottom: 10px;
+  }
+}

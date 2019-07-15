@@ -1,0 +1,67 @@
+<body>
+  <div class="container">
+    <div class="row mb-5">
+      <div class="col-lg-12">
+        <br />
+        <br />
+        <h1 class="text-center font-weight-bold text-danger">Votre panier</h1>
+        <br />
+        <h4 class="right" *ngIf="isAuth">
+          Ma cagnotte:
+          <span class="user-details"> {{ userConnected.wallet }} €</span>
+        </h4>
+      </div>
+    </div>
+
+    <table id="cart" class="table table-hover table-condensed">
+      <thead>
+        <tr class="text-center">
+          <th style="width: auto">Menu</th>
+          <th style="width: 12%">Quantité</th>
+          <th style="width: 16%">Prix</th>
+          <th style="width: 12%"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let panier of menuPanier; let i = index">
+          <td data-th="Menu">
+            <div class="row">
+              <div class="col-sm-2 d-none d-sm-block">
+                <img src="" alt="" class="img-responsive" />
+              </div>
+              <div class="col-sm-10">
+                <h4 class="nomargin">{{ panier.menu.label }}</h4>
+              </div>
+            </div>
+          </td>
+          <td data-th="Quantité" class="text-center">
+            <label type="number" name="quantity" class="form-control text-center disabled"
+              disabled>{{ panier.quantity }}</label>
+          </td>
+          <td data-th="Prix" class="text-center">{{ panier.menu.priceDF }} €</td>
+          <td data-th="Actions" class="text-center actions">
+            <button class="btn btn-danger btn-sm" (click)="supprimerMenu(i)">
+              <i class="fas fa-trash"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr class="d-block d-sm-none">
+          <td class="text-center"><strong> Total</strong></td>
+        </tr>
+        <tr>
+          <td class="nodisplay"></td>
+          <td class="nodisplay"></td>
+          <td class="d-none d-sm-block text-center">
+            <strong> Total: {{ prixTotalPanier }} </strong>
+          </td>
+          <td>
+            <a class="btn search-btn btn-test btn-block" (click)="creerLaCommande()">Valider <i
+                class="fa fa-angle-right"></i></a>
+          </td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+</body>
