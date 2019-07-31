@@ -14,19 +14,19 @@
             <h4>Prénom:</h4>
           </div>
           <div class="col-md-6">
-            <h4 class="user-details">{{user.firstname}}</h4>
+            <h4 class="user-details">{{ user.firstname }}</h4>
           </div>
           <div class="col-md-6">
             <h4>Nom:</h4>
           </div>
           <div class="col-md-6">
-            <h4 class="user-details">{{user.name}}</h4>
+            <h4 class="user-details">{{ user.name }}</h4>
           </div>
           <div class="col-md-6">
             <h4>Adresse mail:</h4>
           </div>
           <div class="col-md-6">
-            <h4 class="user-details">{{user.email}}</h4>
+            <h4 class="user-details">{{ user.email }}</h4>
           </div>
           <!-- <h4>Prénom: <span class="user-details">Kevin</span></h4>
                 <h4>Nom: <span class="user-details">Lorem</span></h4>
@@ -42,10 +42,12 @@
       <div class="col-lg-6 text-center">
         <div class="col-12">
           <h4 class="cagnotte-border w-75">
-            Cagnotte: <span class="user-details">{{user.wallet}}</span>
+            Cagnotte: <span class="user-details">{{ user.wallet }}€</span>
           </h4>
-          <br>
-          <button class="btn btn-danger" [routerLink]="['/edit-user', user.id]">Modifier</button>
+          <br />
+          <button class="btn btn-danger" [routerLink]="['/edit-user', user.id]">
+            Modifier
+          </button>
         </div>
       </div>
     </div>
