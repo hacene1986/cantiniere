@@ -1,10 +1,11 @@
-import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material';
 import { AuthentificationService } from '../../services/authentification.service';
 import { InscriptionComponent } from './../inscription/inscription.component';
 import { ConnexionComponent } from './../connexion/connexion.component';
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ActivatedRoute, Router } from '@angular/router';
+import jwt_decod from 'jwt-decode';
 
 @Component({
   selector: 'app-header',
@@ -17,15 +18,20 @@ export class HeaderComponent implements OnInit {
   isAuth: boolean;
   userConnected: any;
 
+  user: Object;
+
   constructor(
     private modalService: NgbModal,
     private auth: AuthentificationService,
     private snackBar: MatSnackBar,
+    private route: ActivatedRoute,
     private router: Router
-  ) { }
+  ) {
+  }
 
   ngOnInit() {
     this.checkConnexion();
+    this.getUser();
   }
 
   openconnection() {
@@ -53,5 +59,19 @@ export class HeaderComponent implements OnInit {
     }
     console.log('user connecté (isAuth) : ' + this.isAuth);
   }
+
+  getUser() {
+    let tok = localStorage.getItem('token')
+    let decod = jwt_decod(tok);
+    console.log(decod.user);
+    this.user = decod.user;
+    console.log(this.user);
+
+  }
+
+  openMyAccount(id) {
+    this.router.navigate(["/my-account", id]);
+  }
+
 
 }
