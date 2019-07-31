@@ -83,38 +83,36 @@ export class PanierComponent implements OnInit {
   }
 
   creerLaCommande() {
-    // FIXME PROBLEME : d'après le back, une commande ne peux être
-    // constitué que d'un seul menu (on passe menu.id)
 
+    const user = this.userConnected;
 
+    const menu = this.menuPanier;
 
-    // const user = this.userConnected;
+    for (let i = 0; i < this.listArticles.length; i++) {
+      // const element = this.listArticles[i];
+      // console.log(element.menu.id);
 
-    // const menus = this.listArticles;
-    // const menu = this.menuPanier;
+      this.order = {
+        status: 0,
+        creationDate: new Date(),
+        menuId: this.listArticles[i].menu.id,
+        userId: this.userConnected.id,
+        quantities: null,
+      };
 
-    // this.order = {
-    //   status: 0,
-    //   creationDate: new Date(),
-    //   // menu, // id -> Un seul menu par commande ???
-    //   user.id,
-    //   quantities: null, // FIXME tableau de quantité ?????
-    // };
+      this.orderService.addOrder(this.order)
+        .subscribe(
+          (response) => {
+            this.order = response;
+            console.log('order retour: ', this.order);
+          },
+          (error) => {
+            console.log('Error in Order.ts ... addOrder()', error);
+            console.log('order: ', this.order);
+          }
+        );
+    }
 
-    // this.orderService.addOrder(this.order)
-    //   .subscribe(
-    //     (response) => {
-    //       this.order = response;
-    //       console.log('order: ', this.order);
-    //     },
-    //     (error) => {
-    //       // this.openSnackBarError();
-    //       console.log('Error in Order.ts ... addOrder()', error);
-    //       console.log('user: ', user);
-    //       console.log('menu: ', menu);
-    //       console.log('order: ', this.order);
-    //     }
-    //   );
   }
 
 }
