@@ -1,28 +1,27 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { Meal } from '../../models/meal';
+import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
+import { Meal } from "../../models/meal";
 //import { ActivatedRoute } from '@angular/router';
-import { PlatService } from 'src/app/services/plat.service';
-import { NgForm, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { PlatService } from "src/app/services/plat.service";
+import { NgForm, FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 @Component({
-  selector: 'app-cantiniere-plat',
-  templateUrl: './cantiniere-plat.component.html',
-  styleUrls: ['./cantiniere-plat.component.css']
+  selector: "app-cantiniere-plat",
+  templateUrl: "./cantiniere-plat.component.html",
+  styleUrls: ["./cantiniere-plat.component.css"]
 })
 export class CantinierePlatComponent implements OnInit {
-
   // Pour afficher tous les plats par défaut
-  viewMode = 'tabAll';
+  viewMode = "tabAll";
   weekNumber = 32;
   listPlatsWeek: Array<Meal>;
   listPlatsToday: Array<Meal>;
   id: string;
- /// plat: Meal;
+  /// plat: Meal;
   plat: Array<Meal>;
   constructor(private platServices: PlatService) {
     //this.route.params.subscribe(params => this.id = params.id)
-   }
+  }
 
   ngOnInit() {
     this.getAllMealsForWeek();
@@ -30,32 +29,29 @@ export class CantinierePlatComponent implements OnInit {
   }
 
   getAllMealsForWeek() {
-    this.platServices.getAllMealsForWeek(this.weekNumber)
-      .subscribe(
-        (response) => {
-          this.listPlatsWeek = response;
-          console.log('listPlatsWeek: ', this.listPlatsWeek);
-        },
-        (error) => {
-          // this.openSnackBarError();
-          console.log('Error in Plats.ts ... getAllMealsForWeek()', error);
-        }
-      );
+    this.platServices.getAllMealsForWeek(this.weekNumber).subscribe(
+      response => {
+        this.listPlatsWeek = response;
+        console.log("listPlatsWeek: ", this.listPlatsWeek);
+      },
+      error => {
+        // this.openSnackBarError();
+        console.log("Error in Plats.ts ... getAllMealsForWeek()", error);
+      }
+    );
   }
 
-
   getAllMealsForToday() {
-    this.platServices.getAllMealsForToday()
-      .subscribe(
-        (response) => {
-          this.listPlatsToday = response;
-          console.log('listPlatsToday: ', this.listPlatsToday);
-        },
-        (error) => {
-         // this.openSnackBarError();
-          console.log('Error in Plats.ts ... getAllMealsForToday()', error);
-        }
-      );
+    this.platServices.getAllMealsForToday().subscribe(
+      response => {
+        this.listPlatsToday = response;
+        console.log("listPlatsToday: ", this.listPlatsToday);
+      },
+      error => {
+        // this.openSnackBarError();
+        console.log("Error in Plats.ts ... getAllMealsForToday()", error);
+      }
+    );
   }
 
   creerPlat(form: NgForm) {
@@ -68,23 +64,22 @@ export class CantinierePlatComponent implements OnInit {
       availableForWeeks: form.value.availableForWeeks
     };
 
-    this.platServices.addMeal(meal)
-      .subscribe(
-        plat => {
-          console.log('ok');
-          form.reset();
-        }
-      );
+    this.platServices.addMeal(meal).subscribe(plat => {
+      console.log("ok");
+      form.reset();
+      window.location.reload();
+    });
   }
 
-deletePlat(id){
-this.platServices.deleteMeal(id)
-.subscribe(successCode =>{
- // console.log(this.listPlatsWeek);
-  this.listPlatsWeek = this.listPlatsWeek.filter(listPlatsWeek => listPlatsWeek.id !== id);
-  this.listPlatsToday = this.listPlatsToday.filter(listPlatsToday => listPlatsToday.id !== id);
-})
-
-}
-
+  deletePlat(id) {
+    this.platServices.deleteMeal(id).subscribe(successCode => {
+      // console.log(this.listPlatsWeek);
+      this.listPlatsWeek = this.listPlatsWeek.filter(
+        listPlatsWeek => listPlatsWeek.id !== id
+      );
+      this.listPlatsToday = this.listPlatsToday.filter(
+        listPlatsToday => listPlatsToday.id !== id
+      );
+    });
+  }
 }

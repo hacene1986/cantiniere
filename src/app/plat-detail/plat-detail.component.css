@@ -1,0 +1,62 @@
+h1 {
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+  
+  .inputForm {
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
+  
+  .inputForm:focus {
+    color: #495057;
+    background-color: #fff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgb(211, 40, 63, 0.25);
+  }
+  
+  .inputForm:hover {
+    color: #495057;
+    background-color: #fff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgb(211, 40, 63, 0.25);
+  }
+  
+  .btn-modifier {
+    background-color: #d3283f;
+    color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 23px;
+    width: 120px;
+  }
+  
+  .btn-modifier:hover {
+    background-color: rgba(211, 40, 63, 0.822);
+  }
+  
+  .btn-retour {
+    background-color: black;
+    color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 23px;
+    width: 120px;
+  }
+  
+  .btn-retour:hover {
+    opacity: 0.8;
+  }
+  
+  .modal-footer {
+    border-top: none;
+  }
+  

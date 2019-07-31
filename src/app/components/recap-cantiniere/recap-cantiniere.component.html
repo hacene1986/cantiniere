@@ -1,19 +1,48 @@
 <div class="container">
   <div class="row">
     <ul id="tabsNav" class="tabsNav nav">
-      <a routerLink="/cantiniereRecap"
-        class="nav-item nav-link nav-link-custom small text-uppercase col-12 col-xl-3 mb-2 active">Récapitulatif</a>
-      <a routerLink="/cantinierePlat"
-        class="nav-item nav-link nav-link-custom small text-uppercase col-12 col-xl-3 mb-2">Plats</a>
-      <a routerLink="/cantiniereMenu"
-        class="nav-item nav-link nav-link-custom small text-uppercase col-12 col-xl-3 mb-2">Menus</a>
-      <a routerLink="/user-account"
-        class="nav-item nav-link nav-link-custom small text-uppercase col-12 col-xl-3 mb-2">Utilisateurs</a>
+      <a
+        routerLink="/cantiniereRecap"
+        class="nav-item nav-link nav-link-custom small text-uppercase col-12 col-xl-3 mb-2 active"
+        >Récapitulatif</a
+      >
+      <a
+        routerLink="/cantinierePlat"
+        class="nav-item nav-link nav-link-custom small text-uppercase col-12 col-xl-3 mb-2"
+        >Plats</a
+      >
+      <a
+        routerLink="/cantiniereMenu"
+        class="nav-item nav-link nav-link-custom small text-uppercase col-12 col-xl-3 mb-2"
+        >Menus</a
+      >
+      <a
+        routerLink="/user-account"
+        class="nav-item nav-link nav-link-custom small text-uppercase col-12 col-xl-3 mb-2"
+        >Utilisateurs</a
+      >
     </ul>
   </div>
 </div>
-<div class="container-fluid">
-  <div class="row tab plat">
+<div class="container searchContainer">
+  <div class="row mt-5 text-center">
+    <div class="col-lg-4">
+      <label class="searchName" for="">Votre recherche: </label>
+    </div>
+    <div class="col-lg-4">
+      <input
+        type="text"
+        class="searchInput"
+        size="30"
+        [(ngModel)]="searchText"
+      />
+    </div>
+    <div class="col-lg-4">
+      <button type="button" class="btn search-btn">Rechercher</button>
+    </div>
+  </div>
+</div>
+<!-- <div class="row tab plat">
     <div class="col mb-2">
       <div class="days">
         <li class="nav-item nav-link nav-link-custom small text-uppercase ">Lundi</li>
@@ -39,17 +68,35 @@
         <li class="nav-item nav-link nav-link-custom small text-uppercase ">Vendredi</li>
       </div>
     </div>
-  </div>
+  </div> -->
 
-  <div class="row car">
+<div class="container-fluid">
+  <ng-container *ngFor="let order of orders; let i = index">
+    <div class="card align-top" *ngIf="order.menu">
+      <img class="card-img-top" src="../../../assets/menu-default.png" />
+      <div class="card-body">
+        <h5 class="card-title-custom mb-3">
+          {{ order.user.firstname }} {{ order.user.name }}
+        </h5>
+        <mat-divider> </mat-divider>
+        <br />
+        <span class="card-text align-self-start">
+          • {{ order.menu.label }} <br
+        /></span>
 
-    <div class="col mb-5 text-center" *ngFor="let order of order; let i = index">
+        <br />
+        <mat-divider> </mat-divider>
+        <br />
+        <!-- <p class="card-text price">{{ order.menu.priceDF }} €</p> -->
+      </div>
+    </div>
+  </ng-container>
+
+  <!-- <div class="col mb-5 text-center" *ngFor="let order of orders; let i = index">
       <div class="card" style="width: 18rem;">
         <h1 class="text-center">{{order.user.firstname}}</h1>
         <ul class="list-group list-group-flush">
           <li *ngIf="order.menu" class="list-group-item">{{ order.menu.label }}</li>
-          <!-- <li class="list-group-item">Soupe</li>
-              <li class="list-group-item">Poisson</li> -->
         </ul>
         <div class="row text-center">
           <div class="col-12 col-xl-6 card-body">
@@ -60,31 +107,41 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
-
-    <div class="container quantite">
-      <div class="row">
-        <div class="col-12 col-xl-4 text-center">
-          <h2>Quantité du jour: <span>15</span></h2>
-        </div>
-        <div class="col-12 col-xl-4 text-center">
-          <h2>Menu/Plat 1: <span>10</span></h2>
-        </div>
-        <div class="col-12 col-xl-4 text-center">
-          <h2>Menu/Plat 2: <span>10</span></h2>
-        </div>
+  <!-- <div class="container quantite">
+    <div class="row">
+      <div class="col-12 col-xl-4 text-center">
+        <h2>Quantité du jour: <span>15</span></h2>
+      </div>
+      <div class="col-12 col-xl-4 text-center">
+        <h2>Menu/Plat 1: <span>10</span></h2>
+      </div>
+      <div class="col-12 col-xl-4 text-center">
+        <h2>Menu/Plat 2: <span>10</span></h2>
       </div>
     </div>
-  </div>
+  </div> -->
+
   <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
+  <div
+    class="modal fade"
+    id="exampleModal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">Commande</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
@@ -92,9 +149,12 @@
           Etes-vous sur de vouloir annuler la commande ???
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            Annuler
+          </button>
           <button type="button" class="btn btn-primary">Confirmer</button>
         </div>
       </div>
     </div>
   </div>
+</div>
