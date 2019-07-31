@@ -15,7 +15,11 @@ export class OrderService {
 
   // Méthode pour ajouter une commande
   addOrder(order: Order): Observable<Order> {
-    return this.httpClient.put<Order>(environment.urlServeurBackEnd + 'order/add/', order);
+    const reqHeader = new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: 'Bearer ' + localStorage.getItem('token')
+    });
+    return this.httpClient.put<Order>(environment.urlServeurBackEnd + 'order/add/', order, { headers: reqHeader });
   }
 
   // Méthode pour annuler une commande
@@ -33,9 +37,9 @@ export class OrderService {
     let reqHeader = new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': 'Bearer ' + localStorage.getItem('token')
-      
+
     })
-    return this.httpClient.get<Order[]>(environment.urlServeurBackEnd + 'order/findall/', {headers: reqHeader});
+    return this.httpClient.get<Order[]>(environment.urlServeurBackEnd + 'order/findall/', { headers: reqHeader });
   }
 
   // Méthode pour récupérer toute les commandes de tous les utilisateurs en fonction des parametres

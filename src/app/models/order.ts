@@ -5,13 +5,13 @@ export class Order {
     id?: number;
     status?: number;
     creationDate?: Date;
-    menu: Menu;
-    user: User;
+    menuId: number;
+    userId: number;
     quantities: Quantity[];
     constructor(
         id: number,
-        menu: Menu,
-        user: User,
+        menuId: number,
+        userId: number,
         status: number,
         creationDate: Date,
         quantities: Quantity[]
@@ -19,8 +19,8 @@ export class Order {
         this.id = id;
         this.status = status;
         this.creationDate = creationDate;
-        this.menu = menu;
-        this.user = user;
+        this.menuId = menuId;
+        this.userId = userId;
         this.quantities = quantities;
     }
 

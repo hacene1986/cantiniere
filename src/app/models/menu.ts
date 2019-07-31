@@ -7,7 +7,8 @@ export class Menu {
     priceDF: number;
     availableForWeeks?: string;
     image?: string;
-   // meals?: Meal[];
+    menu?: any;
+    // meals?: Meal[];
     constructor(
         id: number,
         status?: number,
