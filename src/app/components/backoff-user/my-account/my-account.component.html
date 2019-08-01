@@ -23,10 +23,34 @@
             <h4 class="user-details">{{ user.name }}</h4>
           </div>
           <div class="col-md-6">
-            <h4>Adresse mail:</h4>
+            <h4>Adresse e-mail:</h4>
           </div>
           <div class="col-md-6">
             <h4 class="user-details">{{ user.email }}</h4>
+          </div>
+          <div class="col-md-6">
+            <h4>Adresse:</h4>
+          </div>
+          <div class="col-md-6">
+            <h4 class="user-details">{{ user.address }}</h4>
+          </div>
+          <div class="col-md-6">
+            <h4>Ville:</h4>
+          </div>
+          <div class="col-md-6">
+            <h4 class="user-details">{{ user.town }}</h4>
+          </div>
+          <div class="col-md-6">
+            <h4>Code postal:</h4>
+          </div>
+          <div class="col-md-6">
+            <h4 class="user-details">{{ user.postalCode }}</h4>
+          </div>
+          <div class="col-md-6">
+            <h4>Téléphone:</h4>
+          </div>
+          <div class="col-md-6">
+            <h4 class="user-details">{{ user.phone }}</h4>
           </div>
           <!-- <h4>Prénom: <span class="user-details">Kevin</span></h4>
                 <h4>Nom: <span class="user-details">Lorem</span></h4>
@@ -45,7 +69,7 @@
             Cagnotte: <span class="user-details">{{ user.wallet }}€</span>
           </h4>
           <br />
-          <button class="btn btn-danger" [routerLink]="['/edit-user', user.id]">
+          <button class="btn btn-modifier" [routerLink]="['/edit-user', user.id]">
             Modifier
           </button>
         </div>

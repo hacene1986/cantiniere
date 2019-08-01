@@ -1,0 +1,69 @@
+.container {
+  margin-bottom: 100px;
+}
+
+.my-account {
+  border: 3px solid black;
+  border-radius: 25px;
+  padding: 10px;
+  margin-top: 35px !important;
+  margin: 0 auto;
+}
+
+.cagnotte-border {
+  /* width: 50%; */
+  border: 3px solid black;
+  border-radius: 25px;
+  padding: 10px;
+  margin: 0 auto;
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+
+.buttonContainer {
+  margin-top: 50px;
+}
+
+.btn-modifier {
+  background-color: #d3283f;
+  color: white;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 23px;
+  width: 120px;
+  margin-right: 25px;
+}
+
+.btn-modifier:hover {
+  background-color: rgba(211, 40, 63, 0.822);
+}
+
+.btn-retour {
+  background-color: black;
+  color: white;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 23px;
+  width: 120px;
+}
+
+.btn-retour:hover {
+  opacity: 0.8;
+}
+
+/* MEDIA QUERIES */
+
+@media (max-width: 294px) {
+  .btn-modifier {
+    margin-right: 0;
+  }
+  .buttonContainer {
+    text-align: center;
+  }
+}
+
+@media (max-width: 269px) {
+  .btn-modifier {
+    margin-bottom: 10px;
+  }
+}

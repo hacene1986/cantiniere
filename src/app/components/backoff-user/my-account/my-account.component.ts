@@ -1,7 +1,8 @@
 import { Component, OnInit } from "@angular/core";
-import { UserService } from 'src/app/services/user.service';
-import jwt_decod from 'jwt-decode'
-import { ActivatedRoute, Router } from '@angular/router';
+import { UserService } from "src/app/services/user.service";
+import jwt_decod from "jwt-decode";
+import { ActivatedRoute, Router } from "@angular/router";
+
 @Component({
   selector: "app-my-account",
   templateUrl: "./my-account.component.html",
@@ -13,7 +14,8 @@ export class MyAccountComponent implements OnInit {
   constructor(
     private userService: UserService,
     private route: ActivatedRoute,
-    private router: Router) { }
+    private router: Router
+  ) {}
 
   ngOnInit() {
     this.id = this.route.snapshot.paramMap.get("id");
@@ -24,11 +26,11 @@ export class MyAccountComponent implements OnInit {
 
   getUser(id) {
     this.userService.getUtilisateur(id).subscribe(
-      (res) => {
+      res => {
         this.user = res;
         console.log(res);
       },
-      (err) => {
+      err => {
         console.log(err);
       }
     );

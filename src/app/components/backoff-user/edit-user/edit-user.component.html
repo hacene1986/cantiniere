@@ -1,94 +1,143 @@
 <body>
   <div class="container">
     <div class="row">
-      <div class="col-md-6">
-          <br><br>
+      <div class="col-md-12">
         <h4 class="my-account text-center w-50">Mon Compte</h4>
       </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6"></div>
       <div class="col-md-6">
-          <br><br>
-          <h4 class="cagnotte-border w-75">
-              Cagnotte : <span class="user-details">{{ user.wallet }} €</span>
-            </h4>
+        <h4 class="cagnotte-border text-center w-50">
+          Cagnotte : <span class="user-details">{{ user.wallet }} €</span>
+        </h4>
       </div>
     </div>
-    <br><br>
-    
 
-      <div>
-        <form (ngSubmit)="updateUser(f)" #f="ngForm">
-          <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Firstname:</label>
-            <input type="text" class="form-control" name="firstname" [ngModel]="user.firstname" ngModel>
-          </div>
-          <div class="form-group">
-            <label for="message-text" class="col-form-label">Email:</label>
-            <input type="email" class="form-control" name="email" [ngModel]="user.email" ngModel/>
-          </div>
-          <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Name:</label>
-            <input type="text" class="form-control" name="name" [ngModel]="user.name" ngModel>
-          </div>
-          <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Address:</label>
-            <input type="text" class="form-control" name="address" [ngModel]="user.address" ngModel>
-          </div>
-          <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Town:</label>
-            <input type="text" class="form-control" name="town" [ngModel]="user.town" ngModel>
-          </div>
-          <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Code postal:</label>
-            <input type="text" class="form-control" name="postalCode" [ngModel]="user.postalCode" ngModel>
-          </div>
-          <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Phone:</label>
-            <input type="text" class="form-control" name="phone" [ngModel]="user.phone" ngModel>
-          </div>
-          <div class="form-group">
-            <label for="recipient-name" class="col-form-label">sex:</label>
-            <input type="number" class="form-control" name="sex" [ngModel]="user.sex" ngModel>
-          </div>
-          <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Password:</label>
-            <input type="text" class="form-control" name="password" [ngModel]="user.password" ngModel>
-          </div>
-          <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Wallet:</label>
-            <input type="number" class="form-control" name="wallet" [ngModel]="user.wallet" ngModel>
-          </div>
-          <div class="modal-footer">
-           <!--<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>--> 
-            <button type="submit" class="btn btn-success">Modifier Menu</button>
-          </div>
-        </form>
+    <div>
+      <form (ngSubmit)="updateUser(f)" #f="ngForm">
+        <div class="form-group">
+          <label for="recipient-name" class="col-form-label">Prénom:</label>
+          <input
+            type="text"
+            class="form-control"
+            name="firstname"
+            [ngModel]="user.firstname"
+            ngModel
+          />
+        </div>
+        <div class="form-group">
+          <label for="recipient-name" class="col-form-label">Nom:</label>
+          <input
+            type="text"
+            class="form-control"
+            name="name"
+            [ngModel]="user.name"
+            ngModel
+          />
+        </div>
+        <div class="form-group">
+          <label for="message-text" class="col-form-label"
+            >Adresse e-mail:</label
+          >
+          <input
+            type="email"
+            class="form-control"
+            name="email"
+            [ngModel]="user.email"
+            ngModel
+          />
+        </div>
 
-      </div>
-      
-  
-
-    <br><br><br><br>
-
-    <h1>=============</h1>
-    
-    <div class="row top-margin" *ngIf="isAuth">
-      
-    <form [formGroup]="userForm" (ngSubmit)="updateUser()">
-      Name: <input formControlName="name"   placeholder="{{ userConnected.name }}">
-      Firstname: <input formControlName="firstname"  placeholder="{{ userConnected.firstname }}">
-      <button type="submit">Submit</button> 
-    </form> 
+        <div class="form-group">
+          <label for="recipient-name" class="col-form-label">Adresse:</label>
+          <input
+            type="text"
+            class="form-control"
+            name="address"
+            [ngModel]="user.address"
+            ngModel
+          />
+        </div>
+        <div class="form-group">
+          <label for="recipient-name" class="col-form-label">Ville:</label>
+          <input
+            type="text"
+            class="form-control"
+            name="town"
+            [ngModel]="user.town"
+            ngModel
+          />
+        </div>
+        <div class="form-group">
+          <label for="recipient-name" class="col-form-label"
+            >Code postal:</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="postalCode"
+            [ngModel]="user.postalCode"
+            ngModel
+          />
+        </div>
+        <div class="form-group">
+          <label for="recipient-name" class="col-form-label">Téléphone:</label>
+          <input
+            type="number"
+            class="form-control"
+            name="phone"
+            [ngModel]="user.phone"
+            ngModel
+          />
+        </div>
+        <div class="form-group">
+          <label for="recipient-name" class="col-form-label"
+            >Mot de passe:</label
+          >
+          <input
+            type="password"
+            class="form-control"
+            name="password"
+            [ngModel]="user.password"
+            ngModel
+          />
+        </div>
+        <div class="form-group">
+          <label for="recipient-name" class="col-form-label">Sexe:</label>
+          <input
+            type="number"
+            class="form-control"
+            name="sex"
+            [ngModel]="user.sex"
+            ngModel
+          />
+        </div>
+        <div class="buttonContainer">
+          <!--<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>-->
+          <button type="submit" class="btn btn-modifier">Modifier</button>
+          <button type="button" class="btn btn-retour">Retour</button>
+        </div>
+      </form>
     </div>
 
-    <h1>=============</h1>
-
-    
+    <!-- <div class="row top-margin" *ngIf="isAuth">
+      <form [formGroup]="userForm" (ngSubmit)="updateUser()">
+        Name:
+        <input formControlName="name" placeholder="{{ userConnected.name }}" />
+        Firstname:
+        <input
+          formControlName="firstname"
+          placeholder="{{ userConnected.firstname }}"
+        />
+        <button type="submit">Submit</button>
+      </form>
+    </div> -->
 
     <!--<div class="row order-recap">
       <div class="col-12 text-center recap">
         <h4 class="user-details">Récapitulatif de la commande</h4>
       </div>
     </div>-->
-    <br><br><br><br>
   </div>
 </body>

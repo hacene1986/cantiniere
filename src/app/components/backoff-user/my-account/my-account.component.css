@@ -46,6 +46,7 @@ li a {
   padding: 10px;
   margin: 0 auto;
 }
+
 .my-account {
   border: 3px solid black;
   border-radius: 25px;
@@ -54,14 +55,18 @@ li a {
   margin: 0 auto;
 }
 
-.btn {
+.btn-modifier {
   background-color: #d3283f;
   color: white;
   padding-top: 10px;
   padding-bottom: 10px;
-  padding-left: 30px;
-  padding-right: 30px;
   border-radius: 23px;
+  width: 120px;
+  margin-right: 25px;
+}
+
+.btn-modifier:hover {
+  background-color: rgba(211, 40, 63, 0.822);
 }
 
 .pending-order {
