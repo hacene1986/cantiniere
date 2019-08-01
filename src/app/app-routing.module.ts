@@ -23,7 +23,7 @@ const routes: Routes = [
   { path: 'connection', component: ConnexionComponent },
   { path: 'user-account', component: UserAccountComponent },
   { path: 'user-details/:id', component: UserDetailsComponent },
-  { path: 'my-account', component: MyAccountComponent },
+  { path: 'my-account/:id', component: MyAccountComponent },
   { path: 'panier', component: PanierComponent },
   { path: '', component: AccueilComponent }, // Accueil par default
   { path: 'menu', component: MenuComponent },
@@ -34,7 +34,7 @@ const routes: Routes = [
   { path: 'cantiniereRecap', component: RecapCantiniereComponent },
   { path: 'platDetail/:id', component: PlatDetailComponent },
   { path: 'menuDetail/:id', component: MenuDetailComponent },
-  { path: 'edit-user/:id', component: EditUserComponent}
+  { path: 'edit-user/:id', component: EditUserComponent }
 ];
 
 @NgModule({

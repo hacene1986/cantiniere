@@ -49,7 +49,7 @@
             routerLink="/cantiniereRecap">
             Espace administration
           </button>
-          <button class="dropdown-item" routerLink="/my-account">
+          <button class="dropdown-item" (click)='openMyAccount(user.id)'>
             Mon Profil
           </button>
           <button class="dropdown-item" routerLink="/panier">Mon Panier</button>
