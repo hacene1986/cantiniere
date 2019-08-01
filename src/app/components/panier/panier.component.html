@@ -7,7 +7,7 @@
         <h1 class="text-center font-weight-bold text-danger">Votre panier</h1>
         <br />
         <h4 class="right" *ngIf="isAuth">
-          Ma cagnotte:
+          Cagnotte:
           <span class="user-details"> {{ userConnected.wallet }} €</span>
         </h4>
       </div>
@@ -35,10 +35,17 @@
             </div>
           </td>
           <td data-th="Quantité" class="text-center">
-            <label type="number" name="quantity" class="form-control text-center disabled"
-              disabled>{{ panier.quantity }}</label>
+            <label
+              type="number"
+              name="quantity"
+              class="form-control text-center disabled"
+              disabled
+              >{{ panier.quantity }}</label
+            >
           </td>
-          <td data-th="Prix" class="text-center">{{ panier.menu.priceDF }} €</td>
+          <td data-th="Prix" class="text-center">
+            {{ panier.menu.priceDF * panier.quantity }} €
+          </td>
           <td data-th="Actions" class="text-center actions">
             <button class="btn btn-danger btn-sm" (click)="supprimerMenu(i)">
               <i class="fas fa-trash"></i>
@@ -57,8 +64,11 @@
             <strong> Total: {{ prixTotalPanier }} </strong>
           </td>
           <td>
-            <a class="btn search-btn btn-test btn-block" (click)="creerLaCommande()">Valider <i
-                class="fa fa-angle-right"></i></a>
+            <a
+              class="btn search-btn btn-test btn-block"
+              (click)="creerLaCommande()"
+              >Valider <i class="fa fa-angle-right"></i
+            ></a>
           </td>
         </tr>
       </tfoot>

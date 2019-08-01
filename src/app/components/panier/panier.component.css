@@ -3,12 +3,18 @@
   margin-top: 35px !important;
 } */
 
+.container {
+  margin-bottom: 100px;
+}
+
 .right {
   float: right;
   border: 3px solid black;
   border-radius: 25px;
   padding: 10px;
   margin: 0 auto;
+  width: 250px;
+  text-align: center;
 }
 
 h1 {
@@ -94,18 +100,14 @@ hr {
   .nodisplay {
     display: none !important;
   }
-
-  .container {
-    margin-bottom: 72px;
-  }
 }
 
 /* MEDIA QUERIES */
 
 @media (max-width: 767px) {
-    .right {
-        float: none;
-        text-align: center !important;
-        margin-top: 30px;
-    }
+  .right {
+    float: none;
+    text-align: center !important;
+    margin-top: 30px;
+  }
 }
