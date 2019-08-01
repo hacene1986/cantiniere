@@ -11,43 +11,43 @@
         <div class="row text-center">
           <!-- <div class="col-md-6"> -->
           <div class="col-md-6">
-            <h4>Prénom:</h4>
+            <h4>Prénom :</h4>
           </div>
           <div class="col-md-6">
             <h4 class="user-details">{{ user.firstname }}</h4>
           </div>
           <div class="col-md-6">
-            <h4>Nom:</h4>
+            <h4>Nom :</h4>
           </div>
           <div class="col-md-6">
             <h4 class="user-details">{{ user.name }}</h4>
           </div>
           <div class="col-md-6">
-            <h4>Adresse e-mail:</h4>
+            <h4>Adresse e-mail :</h4>
           </div>
           <div class="col-md-6">
             <h4 class="user-details">{{ user.email }}</h4>
           </div>
           <div class="col-md-6">
-            <h4>Adresse:</h4>
+            <h4>Adresse :</h4>
           </div>
           <div class="col-md-6">
             <h4 class="user-details">{{ user.address }}</h4>
           </div>
           <div class="col-md-6">
-            <h4>Ville:</h4>
+            <h4>Ville :</h4>
           </div>
           <div class="col-md-6">
             <h4 class="user-details">{{ user.town }}</h4>
           </div>
           <div class="col-md-6">
-            <h4>Code postal:</h4>
+            <h4>Code postal :</h4>
           </div>
           <div class="col-md-6">
             <h4 class="user-details">{{ user.postalCode }}</h4>
           </div>
           <div class="col-md-6">
-            <h4>Téléphone:</h4>
+            <h4>Téléphone :</h4>
           </div>
           <div class="col-md-6">
             <h4 class="user-details">{{ user.phone }}</h4>
@@ -66,7 +66,7 @@
       <div class="col-lg-6 text-center">
         <div class="col-12">
           <h4 class="cagnotte-border w-75">
-            Cagnotte: <span class="user-details">{{ user.wallet }}€</span>
+            Cagnotte : <span class="user-details">{{ user.wallet }}€</span>
           </h4>
           <br />
           <button class="btn btn-modifier" [routerLink]="['/edit-user', user.id]">
@@ -83,7 +83,71 @@
     </div>
     <div class="row order-recap">
       <div class="col-12 text-center recap">
-        <h4 class="user-details">Récapitulatif de la commande</h4>
+        <!-- <h4 class="user-details">Récapitulatif de la commande</h4> -->
+
+          <!-- Ajout 01 Aout  -->
+          <table id="cart" class="table table-hover table-condensed">
+            <thead>
+              <tr class="text-center">
+                <th style="width: auto">Menu</th>
+                <th style="width: 12%">Quantité</th>
+                <th style="width: 16%">Prix</th>
+                <th style="width: 12%"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let panier of menuPanier; let i = index">
+                <td data-th="Menu">
+                  <div class="row">
+                    <div class="col-sm-2 d-none d-sm-block">
+                      <img src="" alt="" class="img-responsive" />
+                    </div>
+                    <div class="col-sm-10">
+                      <h4 class="nomargin">{{ panier.menu.label }}</h4>
+                    </div>
+                  </div>
+                </td>
+                <td data-th="Quantité" class="text-center">
+                  <label
+                    type="number"
+                    name="quantity"
+                    class="form-control text-center disabled"
+                    disabled
+                    >{{ panier.quantity }}</label
+                  >
+                </td>
+                <td data-th="Prix" class="text-center">
+                  {{ panier.menu.priceDF * panier.quantity }} €
+                </td>
+                <td data-th="Actions" class="text-center actions">
+                  <button class="btn btn-danger btn-sm" (click)="supprimerMenu(i)">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr class="d-block d-sm-none">
+                <td class="text-center"><strong> Total</strong></td>
+              </tr>
+              <tr>
+                <td class="nodisplay"></td>
+                <td class="nodisplay"></td>
+                <td class="d-none d-sm-block text-center">
+                  <strong> Total: {{ prixTotalPanier }} € </strong>
+                </td>
+                <td>
+                  <a
+                    class="btn search-btn btn-test btn-block"
+                    (click)="creerLaCommande()"
+                    >Valider <i class="fa fa-angle-right"></i
+                  ></a>
+                </td>
+              </tr>
+            </tfoot>
+          </table>
+          <!-- Ajout 01 Aout -->
+
       </div>
     </div>
   </div>

@@ -80,6 +80,14 @@ li a {
   padding: 80px;
 }
 
+.btn-test {
+  background-color: #d3283f;
+  color: white !important;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 23px;
+}
+
 /* MEDIA QUERIES */
 
 @media (max-width: 991px) {
