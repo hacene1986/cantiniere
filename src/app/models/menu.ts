@@ -8,6 +8,7 @@ export class Menu {
     availableForWeeks?: string;
     image?: string;
     menu?: any;
+    quantity?: any;
     // meals?: Meal[];
     constructor(
         id: number,

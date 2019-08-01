@@ -28,7 +28,7 @@ export class PanierComponent implements OnInit {
     private snackbar: MatSnackBar,
     private auth: AuthentificationService,
     private orderService: OrderService
-  ) {}
+  ) { }
 
   ngOnInit() {
     if (this.auth.isLogged()) {
@@ -70,22 +70,12 @@ export class PanierComponent implements OnInit {
       this.local = localStorage.getItem("panier");
       this.listArticles = JSON.parse(this.local);
       console.log(this.listArticles);
-      // tslint:disable-next-line:prefer-for-of
+      this.prixTotalPanier = 0;
       for (let i = 0; i < this.listArticles.length; i++) {
-        // this.price = this.listArticles[i].priceDF;
-        console.log("total panier: " + this.prixTotalPanier);
-        console.log("Prix article i: " + this.listArticles[i].menu.priceDF);
-        console.log("Quantité: " + this.listArticles[i].quantity)
-        this.prixTotalPanier =
-          // this.prixTotalPanier * this.listArticles[i].quantity +
-          this.prixTotalPanier + (this.listArticles[i].menu.priceDF * this.listArticles[i].quantity);
+        this.prixTotalPanier = this.prixTotalPanier + (this.listArticles[i].menu.priceDF * this.listArticles[i].quantity);
         console.log(this.prixTotalPanier);
-        // this.correctPrice =
-        //   this.listArticles[i].menu.priceDF * this.listArticles[i].quantity;
-        // console.log(this.correctPrice);
       }
     }
-    // FIXME fix NaN
   }
 
   creerLaCommande() {
