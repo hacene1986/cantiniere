@@ -4,30 +4,18 @@
   <h1 class="text-center h1 font-weight-bold text-danger">Les menus</h1>
   <br />
   <ul id="tabsNav" class="tabsNav nav">
-    <li
-      class="nav-item nav-link nav-link-custom small text-uppercase active mr-3"
-      [class.active]="viewMode == 'tabToday'"
-      rel="tabToday"
-      (click)="viewMode = 'tabToday'"
-    >
+    <li class="nav-item nav-link nav-link-custom small text-uppercase active mr-3"
+      [class.active]="viewMode == 'tabToday'" rel="tabToday" (click)="viewMode = 'tabToday'">
       Aujourd'hui
     </li>
-    <li
-      class="nav-item nav-link nav-link-custom small text-uppercase active ml-3"
-      [class.active]="viewMode == 'tabThisWeek'"
-      rel="tabThisWeek"
-      (click)="viewMode = 'tabThisWeek'"
-    >
+    <li class="nav-item nav-link nav-link-custom small text-uppercase active ml-3"
+      [class.active]="viewMode == 'tabThisWeek'" rel="tabThisWeek" (click)="viewMode = 'tabThisWeek'">
       Cette semaine
     </li>
   </ul>
 
   <div id="tabsContent" class="tab-content tabsContent" [ngSwitch]="viewMode">
-    <div
-      id="tabThisWeek"
-      *ngSwitchCase="'tabThisWeek'"
-      class="tab-pane fade active show"
-    >
+    <div id="tabThisWeek" *ngSwitchCase="'tabThisWeek'" class="tab-pane fade active show">
       <ng-container *ngFor="let menu of listMenuThisWeek">
         <div class="card align-top">
           <img class="card-img-top" src="../../../assets/menu-default.png" />
@@ -40,8 +28,7 @@
             <span class="card-text" *ngFor="let meal of menu.meals">
               •
               {{ meal.label }}
-              <br
-            /></span>
+              <br /></span>
 
             <br />
             <mat-divider> </mat-divider>
@@ -52,11 +39,7 @@
       </ng-container>
     </div>
 
-    <div
-      id="tabToday"
-      *ngSwitchCase="'tabToday'"
-      class="tab-pane fade active show"
-    >
+    <div id="tabToday" *ngSwitchCase="'tabToday'" class="tab-pane fade active show">
       <ng-container *ngFor="let menu of listMenuToday">
         <div class="card align-top">
           <img class="card-img-top" src="../../../assets/menu-default.png" />
@@ -66,40 +49,24 @@
             </h5>
             <mat-divider> </mat-divider>
             <br />
-            <span
-              class="card-text align-self-start"
-              *ngFor="let meal of menu.meals"
-            >
+            <span class="card-text align-self-start" *ngFor="let meal of menu.meals">
               •
               {{ meal.label }}
-              <br
-            /></span>
+              <br /></span>
 
             <br />
             <mat-divider> </mat-divider>
             <br />
             <span class="card-text price float-left">{{ menu.priceDF }} €</span>
-            <a
-              class="btn btn-add btn-danger float-right text-white"
-              style="cursor: pointer;"
-              (click)="addToPanier(menu)"
-              >+</a
-            >
-            <a
-              class="btn btn-more btn-primary float-right text-white mr-2"
-              style="cursor: pointer;"
-              (click)="openAddModal(ajoutPanier)"
-              >...</a
-            >
+            <a class="btn btn-add btn-danger float-right text-white" style="cursor: pointer;"
+              (click)="addToPanier(menu)">+</a>
+            <a class="btn btn-more btn-primary float-right text-white mr-2" style="cursor: pointer;"
+              (click)="openAddModal(ajoutPanier)">...</a>
           </div>
           <ng-template #ajoutPanier let-modal>
             <div class="modal-header d-inline-block">
-              <button
-                type="button"
-                class="close float-right"
-                aria-describedby="modal-title"
-                (click)="modal.dismiss('Cross click')"
-              >
+              <button type="button" class="close float-right" aria-describedby="modal-title"
+                (click)="modal.dismiss('Cross click')">
                 <span aria-hidden="true">&times;</span>
               </button>
               <h4 class="modal-title font-weight-bolder" id="modal-basic-title">
@@ -115,9 +82,7 @@
               <div class="ingredients col-6 float-left">
                 <h4 class="text-center font-weight-light">Plats :</h4>
                 <div class="row" *ngFor="let plat of menu.meals; let i = index">
-                  <span class="col-12 text-center"
-                    >• <i>{{ plat.label }}</i></span
-                  >
+                  <span class="col-12 text-center">• <i>{{ plat.label }}</i></span>
                   <!-- <div class="row" *ngFor="let ingredient of plat.ingredients">
                     <span class="col-12 text-center">• <i>{{ ingredient.label }}</i></span>
                   </div> -->
@@ -126,11 +91,8 @@
               <div class="plats col-6 float-right">
                 <h4 class="text-center font-weight-light">Ingrédients :</h4>
                 <div class="row" *ngFor="let plat of menu.meals; let i = index">
-                  <span
-                    class="col-12 text-center"
-                    *ngFor="let ingredient of plat.ingredients"
-                    >• <i>{{ ingredient.label }}</i></span
-                  >
+                  <span class="col-12 text-center" *ngFor="let ingredient of plat.ingredients">•
+                    <i>{{ ingredient.label }}</i></span>
                   <!-- <div class="row" *ngFor="let ingredient of plat.ingredients">
                     <span class="col-12 text-center">• <i>{{ ingredient.label }}</i></span>
                   </div> -->
@@ -152,18 +114,10 @@
               </div>
             </div>
             <div class="modal-footer">
-              <button
-                type="button"
-                class="btn btn-retour"
-                (click)="modal.dismiss('cancel click')"
-              >
+              <button type="button" class="btn btn-retour" (click)="modal.dismiss('cancel click')">
                 Retour
               </button>
-              <button
-                type="button"
-                class="btn btn-test"
-                (click)="closeValiderAjoutPanier(menu, quantity)"
-              >
+              <button type="button" class="btn btn-test" (click)="closeValiderAjoutPanier(menu, quantity)">
                 Valider
               </button>
             </div>
@@ -174,7 +128,7 @@
   </div>
   <br /><br /><br />
   <ng-template #snackBarTemplateError>
-    <div class="text-center text-danger2 font-weight-bold">
+    <div class="text-center text-danger font-weight-bold">
       ⚠️ Vérifier que l'application est lancée (Eclipse).
     </div>
   </ng-template>

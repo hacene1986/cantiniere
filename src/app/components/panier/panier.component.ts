@@ -1,17 +1,18 @@
-import { Menu } from "./../../models/menu";
-import { Order } from "./../../models/order";
-import { OrderService } from "./../../services/order.service";
-import { Meal } from "src/app/models/meal";
-import { AuthentificationService } from "./../../services/authentification.service";
-import { MatSnackBar } from "@angular/material";
-import { Component, OnInit } from "@angular/core";
-import { NgForm } from "@angular/forms";
-import { User } from "src/app/models/user";
+import { Menu } from './../../models/menu';
+import { Order } from './../../models/order';
+import { OrderService } from './../../services/order.service';
+import { Meal } from 'src/app/models/meal';
+import { AuthentificationService } from './../../services/authentification.service';
+import { MatSnackBar } from '@angular/material';
+import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { User } from 'src/app/models/user';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: "app-panier",
-  templateUrl: "./panier.component.html",
-  styleUrls: ["./panier.component.css"]
+  selector: 'app-panier',
+  templateUrl: './panier.component.html',
+  styleUrls: ['./panier.component.css']
 })
 export class PanierComponent implements OnInit {
   menuPanier: [];
@@ -24,10 +25,16 @@ export class PanierComponent implements OnInit {
   price: number;
   order: Order;
 
+  @ViewChild('snackBarTemplateCommander')
+  snackBarTemplateCommander: TemplateRef<any>;
+  @ViewChild('snackBarTemplateCommanderAvant')
+  snackBarTemplateCommanderAvant: TemplateRef<any>;
+
   constructor(
     private snackbar: MatSnackBar,
     private auth: AuthentificationService,
-    private orderService: OrderService
+    private orderService: OrderService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -44,33 +51,34 @@ export class PanierComponent implements OnInit {
 
   // Initialiser le panier
   recupererPanier() {
-    if (localStorage.getItem("panier") != null) {
-      this.menuPanier = JSON.parse(localStorage.getItem("panier"));
+    if (localStorage.getItem('panier') != null) {
+      this.menuPanier = JSON.parse(localStorage.getItem('panier'));
       console.log(this.menuPanier);
     }
     // Pour supprimer 'panier' du localstorage s'il est vide
-    if (JSON.stringify(this.menuPanier) === "[]") {
-      localStorage.removeItem("panier");
+    if (JSON.stringify(this.menuPanier) === '[]') {
+      localStorage.removeItem('panier');
     }
   }
 
   // Méthode qui permet de supprimer un menu du panier
   supprimerMenu(i) {
-    console.log(JSON.parse(localStorage.getItem("panier")));
-    const storagePanier = JSON.parse(localStorage.getItem("panier"));
+    console.log(JSON.parse(localStorage.getItem('panier')));
+    const storagePanier = JSON.parse(localStorage.getItem('panier'));
     storagePanier.splice(i, 1);
-    localStorage.setItem("panier", JSON.stringify(storagePanier));
-    console.log(JSON.parse(localStorage.getItem("panier")));
+    localStorage.setItem('panier', JSON.stringify(storagePanier));
+    console.log(JSON.parse(localStorage.getItem('panier')));
     this.ngOnInit();
   }
 
   // Pour calculer le prix total du panier
   calculerTotalPanier() {
-    if (localStorage.getItem("panier") != null) {
-      this.local = localStorage.getItem("panier");
+    if (localStorage.getItem('panier') != null) {
+      this.local = localStorage.getItem('panier');
       this.listArticles = JSON.parse(this.local);
       console.log(this.listArticles);
       this.prixTotalPanier = 0;
+      // tslint:disable-next-line: prefer-for-of
       for (let i = 0; i < this.listArticles.length; i++) {
         this.prixTotalPanier = this.prixTotalPanier + (this.listArticles[i].menu.priceDF * this.listArticles[i].quantity);
         console.log(this.prixTotalPanier);
@@ -83,6 +91,7 @@ export class PanierComponent implements OnInit {
 
     const menu = this.menuPanier;
 
+    // tslint:disable-next-line: prefer-for-of
     for (let i = 0; i < this.listArticles.length; i++) {
       // const element = this.listArticles[i];
       // console.log(element.menu.id);
@@ -98,13 +107,35 @@ export class PanierComponent implements OnInit {
       this.orderService.addOrder(this.order).subscribe(
         response => {
           this.order = response;
-          console.log("order retour: ", this.order);
+          this.openSnackBarCommander();
+          localStorage.removeItem('panier');
+          this.router.navigate(['/']);
+
+          console.log('order retour: ', this.order);
         },
         error => {
-          console.log("Error in Order.ts ... addOrder()", error);
-          console.log("order: ", this.order);
+          this.openSnackBarCommanderAvant();
+          console.log('Error in Order.ts ... addOrder()', error);
+          console.log('order: ', this.order);
         }
       );
     }
+  }
+
+  // Méthode qui permet d'afficher un message de confirmation de commande
+  openSnackBarCommander() {
+    this.snackbar.openFromTemplate(this.snackBarTemplateCommander, {
+      duration: 10000,
+      verticalPosition: 'bottom',
+      horizontalPosition: 'right',
+    });
+  }
+
+  openSnackBarCommanderAvant() {
+    this.snackbar.openFromTemplate(this.snackBarTemplateCommanderAvant, {
+      duration: 10000,
+      verticalPosition: 'bottom',
+      horizontalPosition: 'right',
+    });
   }
 }

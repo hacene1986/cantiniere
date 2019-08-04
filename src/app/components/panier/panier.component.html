@@ -35,13 +35,8 @@
             </div>
           </td>
           <td data-th="Quantité" class="text-center">
-            <label
-              type="number"
-              name="quantity"
-              class="form-control text-center disabled"
-              disabled
-              >{{ panier.quantity }}</label
-            >
+            <label type="number" name="quantity" class="form-control text-center disabled"
+              disabled>{{ panier.quantity }}</label>
           </td>
           <td data-th="Prix" class="text-center">
             {{ panier.menu.priceDF * panier.quantity }} €
@@ -64,14 +59,22 @@
             <strong> Total: {{ prixTotalPanier }} € </strong>
           </td>
           <td>
-            <a
-              class="btn search-btn btn-test btn-block"
-              (click)="creerLaCommande()"
-              >Valider <i class="fa fa-angle-right"></i
-            ></a>
+            <a class="btn search-btn btn-test btn-block" (click)="creerLaCommande()">Valider <i
+                class="fa fa-angle-right"></i></a>
           </td>
         </tr>
       </tfoot>
     </table>
   </div>
 </body>
+
+<ng-template #snackBarTemplateCommander>
+  <div class="text-center text-success font-weight-bold">
+    ✅ Votre commande a été enregistrée.
+  </div>
+</ng-template>
+<ng-template #snackBarTemplateCommanderAvant>
+  <div class="text-center text-danger font-weight-bold">
+    ⚠️ Vous devez commander avant 10h30.
+  </div>
+</ng-template>
