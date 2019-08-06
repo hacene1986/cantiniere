@@ -15,12 +15,10 @@ export class RecapCantiniereComponent implements OnInit {
 
   ngOnInit() {
     this.recapOrder();
-    // this.menu()
   }
 
   recapOrder() {
     this.OrderService.getAllOrder().subscribe(res => {
-      console.log(res);
       this.orders = res;
     });
   }

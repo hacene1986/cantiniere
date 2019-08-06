@@ -36,8 +36,8 @@ import { ContactComponent } from './components/contact/contact.component';
 import { CantinierePlatComponent } from './components/cantiniere-plat/cantiniere-plat.component';
 import { CantiniereMenuComponent } from './components/cantiniere-menu/cantiniere-menu.component';
 import { PlatService } from './services/plat.service';
-import { PlatDetailComponent } from './plat-detail/plat-detail.component';
-import { MenuDetailComponent } from './menu-detail/menu-detail.component';
+import { PlatDetailComponent } from './components/plat-detail/plat-detail.component';
+import { MenuDetailComponent } from './components/menu-detail/menu-detail.component';
 import { EditUserComponent } from './components/backoff-user/edit-user/edit-user.component';
 
 

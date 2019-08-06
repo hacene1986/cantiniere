@@ -21,6 +21,7 @@
 .form-inline {
   text-align: center;
 }
+
 .valid {
   text-align: center;
   padding: 70px;
@@ -32,7 +33,6 @@
   border-radius: 20px;
   border: none;
 }
-/**************************/
 
 .nav-item {
   cursor: pointer;
@@ -45,7 +45,6 @@
   text-align: center;
   margin: 0 auto;
   width: 100%;
-  /* max-width: 100%;*/
   margin-bottom: 37px;
   display: inline-block;
   padding: 45px;
@@ -60,7 +59,6 @@ a {
   background-color: #dfdfdf;
   color: rgb(17, 14, 14);
   border-radius: 20px;
-  /* font-weight: 600;*/
   font-family: "Montserrat", sans-serif;
 }
 
@@ -78,7 +76,6 @@ a {
 }
 
 .tab-pane {
-  /* display: flex; */
   text-align: center;
 }
 
@@ -94,18 +91,12 @@ a {
   padding-bottom: 50px;
 }
 
-/* .tab {
-  padding: 60px;
-} */
-
 .tabsNav {
   text-align: center;
   margin: 0 auto;
   width: 100%;
   max-width: 100%;
   margin-bottom: 37px;
-  /* background-color: #e2e2e2; */
-  /* border-radius: 10px; */
   display: inline-block;
 }
 

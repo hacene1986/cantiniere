@@ -1,18 +1,17 @@
-import { MatSnackBar } from '@angular/material';
-import { User } from './../../models/user';
-import { Component, OnInit } from '@angular/core';
-import { UserService } from 'src/app/services/user.service';
-import { Router } from '@angular/router';
-import { NgForm, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { MatSnackBar } from "@angular/material";
+import { User } from "./../../models/user";
+import { Component, OnInit } from "@angular/core";
+import { UserService } from "src/app/services/user.service";
+import { Router } from "@angular/router";
+import { NgForm, FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 
 @Component({
-  selector: 'app-inscription',
-  templateUrl: './inscription.component.html',
-  styleUrls: ['./inscription.component.css']
+  selector: "app-inscription",
+  templateUrl: "./inscription.component.html",
+  styleUrls: ["./inscription.component.css"]
 })
 export class InscriptionComponent implements OnInit {
-
   registerForm: FormGroup;
 
   constructor(
@@ -21,18 +20,16 @@ export class InscriptionComponent implements OnInit {
     private modalService: NgbModal,
     private snackBar: MatSnackBar,
     private formBuilder: FormBuilder
-  ) { }
+  ) {}
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
-      name: ['', Validators.required],
-      firstname: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(8)]],
-      confirmPassword: ['', Validators.required]
-    }, {
-        // validator: MustMatch('password', 'confirmPassword')
-      });
+      name: ["", Validators.required],
+      firstname: ["", Validators.required],
+      email: ["", [Validators.required, Validators.email]],
+      password: ["", [Validators.required, Validators.minLength(8)]],
+      confirmPassword: ["", Validators.required]
+    });
   }
 
   creerUtilisateur(form: NgForm) {
@@ -48,27 +45,25 @@ export class InscriptionComponent implements OnInit {
       town: form.value.ville,
       isLunchLady: 0,
       wallet: 0,
-      image64: ''
+      image64: ""
     };
 
-    this.userService.creerUtilisateur(user)
-      .subscribe(
-        data => {
-          form.reset();
-          this.closeModal();
-        },
-        err => {
-          console.log(err);
-          this.snackBar.open('Problème Serveur !', 'Inscription', {
-            duration: 4000,
-            horizontalPosition: 'left'
-          });
-        }
-      );
-    this.router.navigate(['/']);
-    this.snackBar.open('Bienvenue !', 'Inscrit', {
+    this.userService.creerUtilisateur(user).subscribe(
+      data => {
+        form.reset();
+        this.closeModal();
+      },
+      err => {
+        this.snackBar.open("Problème Serveur !", "Inscription", {
+          duration: 4000,
+          horizontalPosition: "left"
+        });
+      }
+    );
+    this.router.navigate(["/"]);
+    this.snackBar.open("Bienvenue !", "Inscrit", {
       duration: 4000,
-      horizontalPosition: 'left'
+      horizontalPosition: "left"
     });
   }
 
@@ -77,17 +72,17 @@ export class InscriptionComponent implements OnInit {
   }
 
   get name() {
-    return this.registerForm.get('name');
+    return this.registerForm.get("name");
   }
   get firstname() {
-    return this.registerForm.get('firstname');
+    return this.registerForm.get("firstname");
   }
 
   get email() {
-    return this.registerForm.get('email');
+    return this.registerForm.get("email");
   }
 
   get password() {
-    return this.registerForm.get('password');
+    return this.registerForm.get("password");
   }
 }

@@ -4,17 +4,17 @@
       <ul id="tabsNav" class="tabsNav nav">
         <a
           class="nav-item nav-link nav-link-custom small text-uppercase col-12 col-xl-3"
-          href=""
+          [routerLink]="['/cantiniere-recap']"
           >Récapitulatif</a
         >
         <a
           class="nav-item nav-link nav-link-custom small text-uppercase col-12 col-xl-3"
-          href=""
+          [routerLink]="['/cantiniere-plats']"
           >Plats</a
         >
         <a
           class="nav-item nav-link nav-link-custom small text-uppercase col-12 col-xl-3"
-          href=""
+          [routerLink]="['/cantiniere-menus']"
           >Menus</a
         >
         <a
@@ -28,7 +28,6 @@
     <div class="row top-margin">
       <div class="col-lg-6">
         <div class="row text-center">
-          <!-- <div class="col-md-6"> -->
           <div class="col-md-6">
             <h4>Prénom:</h4>
           </div>
@@ -71,16 +70,6 @@
           <div class="col-md-6">
             <h4 class="user-details">{{ user.phone }}</h4>
           </div>
-
-          <!-- <h4>Prénom: <span class="user-details">Kevin</span></h4>
-              <h4>Nom: <span class="user-details">Lorem</span></h4>
-              <h4>Adresse mail: <span class="user-details">kevin.lorem@gmail.com</span></h4> -->
-          <!-- </div> -->
-          <!-- <div class="col-md-6"> -->
-          <!-- <h4 class="user-details">Kevin</h4>
-              <h4 class="user-details">Lorem</h4>
-              <h4 class="user-details">kevin.lorem@gmail.com</h4> -->
-          <!-- </div> -->
         </div>
       </div>
       <div class="col-lg-6 text-center">
@@ -147,13 +136,6 @@
         </div>
       </div>
       <div class="modal-footer crediter-footer">
-        <!-- <button
-        type="submit"
-        class="btn search-btn"
-        (click)="modal.close('Save click')"
-      >
-        NON Valider
-      </button> -->
         <button type="submit" class="btn search-btn">
           Valider
         </button>
@@ -184,13 +166,6 @@
         </div>
       </div>
       <div class="modal-footer crediter-footer">
-        <!-- <button
-        type="submit"
-        class="btn search-btn"
-        (click)="modal.close('Save click')"
-      >
-        NON Valider
-      </button> -->
         <button type="submit" class="btn search-btn">
           Valider
         </button>

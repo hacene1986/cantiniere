@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
-import { MenuService } from "../services/menu.service";
+import { MenuService } from "../../services/menu.service";
 import { NgForm } from "@angular/forms";
-import { ActivatedRoute, Router } from "@angular/router";
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: "app-menu-detail",
@@ -12,11 +12,7 @@ export class MenuDetailComponent implements OnInit {
   id: string;
   menu: Object;
 
-  constructor(
-    private menuService: MenuService,
-    private route: ActivatedRoute,
-    private router: Router
-  ) {
+  constructor(private menuService: MenuService, private route: ActivatedRoute) {
     this.route.params.subscribe(params => (this.id = params.id));
   }
 
@@ -25,17 +21,13 @@ export class MenuDetailComponent implements OnInit {
   }
 
   getMenu(id) {
-    console.log(id);
     this.menuService.getMenu(id).subscribe(res => {
-      console.log(res);
       this.menu = res;
     });
   }
 
   modifMenu(form: NgForm) {
-    console.log(form.form.value);
     this.menuService.updateMenu(this.id, form.form.value).subscribe(menu => {
-      console.log("ok");
       form.reset();
     });
   }

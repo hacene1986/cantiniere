@@ -1,8 +1,3 @@
-/* .centrer {
-  text-align: center;
-  margin-top: 35px !important;
-} */
-
 .container {
   margin-bottom: 100px;
 }
@@ -26,19 +21,6 @@ th {
   font-size: 20px;
 }
 
-/*
-.user-details {
-    font-weight: normal;
-    margin: 0 auto;
-}
-
-hr {
-    height: 2px;
-    border: none;
-    color: black;
-    background-color: black;
-} */
-
 .btn-test {
   background-color: #d3283f;
   color: white !important;
@@ -56,6 +38,16 @@ hr {
   vertical-align: middle;
 }
 
+/* MEDIA QUERIES */
+
+@media (max-width: 767px) {
+  .right {
+    float: none;
+    text-align: center !important;
+    margin-top: 30px;
+  }
+}
+
 @media screen and (max-width: 600px) {
   .right {
     float: none;
@@ -64,7 +56,6 @@ hr {
   }
 
   table#cart tbody td .form-control {
-    /* width: 20%; */
     display: inline !important;
   }
 
@@ -76,11 +67,6 @@ hr {
     padding: 0.6rem;
     min-width: 320px;
   }
-
-  /* table#cart tbody tr td:first-child {
-        background: #333; 
-        color: #fff; 
-    } */
 
   table#cart tbody td:before {
     content: attr(data-th);
@@ -99,15 +85,5 @@ hr {
 
   .nodisplay {
     display: none !important;
-  }
-}
-
-/* MEDIA QUERIES */
-
-@media (max-width: 767px) {
-  .right {
-    float: none;
-    text-align: center !important;
-    margin-top: 30px;
   }
 }

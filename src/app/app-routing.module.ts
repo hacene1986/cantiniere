@@ -13,8 +13,8 @@ import { ContactComponent } from './components/contact/contact.component';
 import { CantinierePlatComponent } from './components/cantiniere-plat/cantiniere-plat.component';
 import { CantiniereMenuComponent } from './components/cantiniere-menu/cantiniere-menu.component';
 import { RecapCantiniereComponent } from './components/recap-cantiniere/recap-cantiniere.component';
-import { PlatDetailComponent } from './plat-detail/plat-detail.component';
-import { MenuDetailComponent } from './menu-detail/menu-detail.component';
+import { PlatDetailComponent } from './components/plat-detail/plat-detail.component';
+import { MenuDetailComponent } from './components/menu-detail/menu-detail.component';
 import { EditUserComponent } from './components/backoff-user/edit-user/edit-user.component'
 
 
@@ -29,11 +29,11 @@ const routes: Routes = [
   { path: 'menu', component: MenuComponent },
   { path: 'plats', component: PlatsComponent },
   { path: 'contact', component: ContactComponent },
-  { path: 'cantinierePlat', component: CantinierePlatComponent },
-  { path: 'cantiniereMenu', component: CantiniereMenuComponent },
-  { path: 'cantiniereRecap', component: RecapCantiniereComponent },
-  { path: 'platDetail/:id', component: PlatDetailComponent },
-  { path: 'menuDetail/:id', component: MenuDetailComponent },
+  { path: 'cantiniere-plats', component: CantinierePlatComponent },
+  { path: 'cantiniere-menus', component: CantiniereMenuComponent },
+  { path: 'cantiniere-recap', component: RecapCantiniereComponent },
+  { path: 'plat-detail/:id', component: PlatDetailComponent },
+  { path: 'menu-detail/:id', component: MenuDetailComponent },
   { path: 'edit-user/:id', component: EditUserComponent }
 ];
 

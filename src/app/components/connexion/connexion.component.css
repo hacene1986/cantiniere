@@ -1,25 +1,19 @@
-/* .buttons {
-  width: 150px;
-} */
-
 .container {
   height: 100%;
   padding-top: 30px;
   padding-bottom: 65px;
-  /* margin-bottom: 30px; */
   padding-right: 30px;
   padding-left: 30px;
   background: #f0f0f0;
-  /* border-radius: 3%; */
 }
 
 .connexion {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-weight: bolder;
 }
 
 .btn-test {
-  background-color: #D3283F;
+  background-color: #d3283f;
   color: white;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -37,7 +31,7 @@
 }
 
 .btn-test:hover {
-  background-color: rgba(211, 40, 63, 0.822)
+  background-color: rgba(211, 40, 63, 0.822);
 }
 
 .btn-retour:hover {
@@ -45,7 +39,7 @@
 }
 
 .forgot {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
 form.needs-validation {
