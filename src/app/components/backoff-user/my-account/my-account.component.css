@@ -100,3 +100,52 @@ li a {
     margin-bottom: 10px;
   }
 }
+
+.tab-pane {
+  text-align: center;
+}
+
+.card {
+  margin: 15px;
+  filter: drop-shadow(5px 5px 10px rgb(194, 194, 194));
+  width: 16rem;
+  height: -moz-fit-content;
+  display: inline-block;
+  border-radius: 10px;
+  transition: 0.5s ease;
+}
+
+.card:hover {
+  -webkit-transform: translateY(-1px);
+  transform: translateY(-10px);
+  -webkit-box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
+}
+
+.card-img-top {
+  height: 150px;
+  opacity: 0.85;
+}
+
+.card-title-custom {
+  text-align: center;
+  font-size: 1.2em;
+  font-weight: 600;
+}
+
+.card-text {
+  font-size: 0.9em;
+  text-align: left;
+}
+
+.price {
+  background-color: #f5f5f5;
+  box-shadow: inset 0px 0px 8px rgba(175, 175, 175, 0.9);
+  border-radius: 33px;
+  font-size: 1.15em;
+  font-weight: 700;
+
+  padding: 10px;
+  width: 50%;
+  margin: 0 auto;
+}

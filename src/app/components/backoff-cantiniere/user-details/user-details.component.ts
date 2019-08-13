@@ -21,14 +21,12 @@ export class UserDetailsComponent implements OnInit {
   user: User;
   amount: number;
   orders: Order[];
-  menuInOrder: Menu;
 
   constructor(
     private modalService: NgbModal,
     private userService: UserService,
     private route: ActivatedRoute,
     private orderService: OrderService,
-    private menuservice: MenuService
   ) {
     this.route.params.subscribe(params => this.id = params.id);
   }
@@ -63,21 +61,6 @@ export class UserDetailsComponent implements OnInit {
       });
   }
 
-  findOrderDetails(menuId) {
-    console.log('menuId before getMenu', menuId);
-
-    this.menuservice.getMenu(menuId).subscribe(
-      (res) => {
-        console.log('menuId après getMenu', menuId);
-        console.log('res après getMenu', menuId);
-        this.menuInOrder = res;
-      },
-      (err) => {
-        console.log('erreur findOrderDetails : ', err);
-      }
-    );
-  }
-
   debiter(form: NgForm) {
     this.amount = form.value.amount;
 
@@ -93,12 +76,10 @@ export class UserDetailsComponent implements OnInit {
     this.id2 = +this.id;
     return this.orderService.getAllOrderForUser(null, null, null, this.id2).subscribe(
       (res) => {
-        console.log(res);
-
         this.orders = res;
       },
       (err) => {
-
+        console.log(err);
       });
   }
 }
