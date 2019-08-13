@@ -23,7 +23,7 @@ export class MenuService {
 
   // Méthode pour récuperer un menu
   getMenu(menuId: string): Observable<Menu> {
-    console.log('menuId dans getMenu', id);
+    console.log('menuId dans getMenu', menuId);
     return this.httpClient.get<Menu>(environment.urlServeurBackEnd + 'menu/find/' + menuId);
   }
 
