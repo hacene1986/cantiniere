@@ -13,7 +13,7 @@
       </ul>
     </div>
 
-    <div class="row top-margin">
+    <div class="row top-margin" *ngIf="user != null">
       <div class="col-lg-6">
         <div class="row text-center">
           <div class="col-md-6">
@@ -108,30 +108,8 @@
             <span class="card-text price">{{ order.menu.priceDF }} €</span>
           </div>
         </div>
-        <!-- <div class="list-orders">
-      <ng-container *ngFor="let order of orders">
-      <div class="order-recap" *ngIf="order.menu != null">
-      <div class="text-center recap">
-      <h3 class="user-details">
-      {{ order.menu.label }} <br>
-      <span *ngFor="let meal of order.menu.meals"> •{{ meal.label }}<br></span>
-      </h3>
-      </div>
-      </div>
-      </ng-container>
-      </div> -->
       </ng-container>
     </div>
-    <!-- <ng-container *ngFor="let order of orders">
-      <div class="order-recap" *ngIf="order.menu != null">
-        <div class="text-center recap">
-          <h3 class="user-details">
-            {{ order.menu.label }} <br>
-            <span *ngFor="let meal of order.menu.meals"> •{{ meal.label }}<br></span>
-          </h3>
-        </div>
-      </div>
-    </ng-container> -->
   </div>
 
   <!-- MODAL CREDITER -->

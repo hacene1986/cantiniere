@@ -8,6 +8,7 @@ export class Order {
     menuId: number;
     userId: number;
     quantities: Quantity[];
+    menu?: Menu;
     constructor(
         id: number,
         menuId: number,

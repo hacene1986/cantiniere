@@ -1,3 +1,4 @@
+import { Meal } from 'src/app/models/meal';
 //import { Meal } from './meal';
 export class Menu {
     id?: number;
@@ -9,6 +10,7 @@ export class Menu {
     image?: string;
     menu?: any;
     quantity?: any;
+    meals?: Meal[];
     // meals?: Meal[];
     constructor(
         id: number,
