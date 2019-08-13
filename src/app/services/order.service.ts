@@ -34,11 +34,11 @@ export class OrderService {
 
   // Méthode pour récupérer toutes les commandes
   getAllOrder(): Observable<Order[]> {
-    let reqHeader = new HttpHeaders({
+    const reqHeader = new HttpHeaders({
       'Content-Type': 'application/json',
-      'Authorization': 'Bearer ' + localStorage.getItem('token')
+      Authorization: 'Bearer ' + localStorage.getItem('token')
 
-    })
+    });
     return this.httpClient.get<Order[]>(environment.urlServeurBackEnd + 'order/findall/', { headers: reqHeader });
   }
 
@@ -48,8 +48,12 @@ export class OrderService {
   }
 
   // Méthode pour récupérer toutes les commandes d'un utilisateur
-  getAllOrderForUser(beginDate: string, endDate: string, status: number, user: User): Observable<Order[]> {
-    return this.httpClient.get<Order[]>(environment.urlServeurBackEnd + 'order/findallforuser/' + user.id);
+  getAllOrderForUser(beginDate: string, endDate: string, status: number, userId: number): Observable<Order[]> {
+    const reqHeader = new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: 'Bearer ' + localStorage.getItem('token')
+    });
+    return this.httpClient.get<Order[]>(environment.urlServeurBackEnd + 'order/findallforuser/' + userId, { headers: reqHeader });
   }
 
   // Méthode pour récupérer toutes les commandes d'aujourd'hui, d'un utilisateur

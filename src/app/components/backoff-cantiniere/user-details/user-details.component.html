@@ -2,26 +2,11 @@
   <div class="container">
     <div class="row">
       <ul id="tabsNav" class="tabsNav nav">
-        <a
-          class="nav-item nav-link nav-link-custom small text-uppercase col-12 col-xl-3"
-          href=""
-          >Récapitulatif</a
-        >
-        <a
-          class="nav-item nav-link nav-link-custom small text-uppercase col-12 col-xl-3"
-          href=""
-          >Plats</a
-        >
-        <a
-          class="nav-item nav-link nav-link-custom small text-uppercase col-12 col-xl-3"
-          href=""
-          >Menus</a
-        >
-        <a
-          class="nav-item nav-link nav-link-custom small text-uppercase col-12 col-xl-3"
-          [routerLink]="['/user-account']"
-          >Utilisateurs</a
-        >
+        <a class="nav-item nav-link nav-link-custom small text-uppercase col-12 col-xl-3" href="">Récapitulatif</a>
+        <a class="nav-item nav-link nav-link-custom small text-uppercase col-12 col-xl-3" href="">Plats</a>
+        <a class="nav-item nav-link nav-link-custom small text-uppercase col-12 col-xl-3" href="">Menus</a>
+        <a class="nav-item nav-link nav-link-custom small text-uppercase col-12 col-xl-3"
+          [routerLink]="['/user-account']">Utilisateurs</a>
       </ul>
     </div>
 
@@ -91,20 +76,12 @@
         </div>
         <div class="row mt-3">
           <div class="col-6">
-            <button
-              type="button"
-              class="btn search-btn"
-              (click)="openCrediter(contentCrediter)"
-            >
+            <button type="button" class="btn search-btn" (click)="openCrediter(contentCrediter)">
               Créditer
             </button>
           </div>
           <div class="col-6">
-            <button
-              type="button"
-              class="btn search-btn"
-              (click)="openSolder(contentSolder)"
-            >
+            <button type="button" class="btn search-btn" (click)="openSolder(contentSolder)">
               Débiter
             </button>
           </div>
@@ -117,9 +94,9 @@
         <h4>Commandes en cours:</h4>
       </div>
     </div>
-    <div class="row order-recap">
+    <div class="row order-recap" *ngFor="let order of orders">
       <div class="col-12 text-center recap">
-        <h4 class="user-details">Récapitulatif de la commande</h4>
+        <h4 class="user-details">{{ order.creationDate }}</h4>
       </div>
     </div>
   </div>
@@ -136,13 +113,7 @@
             <label for="">Montant: </label>
           </div>
           <div class="col-md-6">
-            <input
-              type="text"
-              name="amount"
-              class="montant"
-              size="10"
-              ngModel
-            />
+            <input type="text" name="amount" class="montant" size="10" ngModel />
           </div>
         </div>
       </div>
@@ -173,13 +144,7 @@
             <label for="">Montant: </label>
           </div>
           <div class="col-md-6">
-            <input
-              type="text"
-              name="amount"
-              class="montant"
-              size="10"
-              ngModel
-            />
+            <input type="text" name="amount" class="montant" size="10" ngModel />
           </div>
         </div>
       </div>

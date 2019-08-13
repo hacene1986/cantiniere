@@ -29,6 +29,8 @@ export class PanierComponent implements OnInit {
   snackBarTemplateCommander: TemplateRef<any>;
   @ViewChild('snackBarTemplateCommanderAvant')
   snackBarTemplateCommanderAvant: TemplateRef<any>;
+  @ViewChild('snackBarTemplateCagnotteTropFaible')
+  snackBarTemplateCagnotteTropFaible: TemplateRef<any>;
 
   constructor(
     private snackbar: MatSnackBar,
@@ -88,37 +90,40 @@ export class PanierComponent implements OnInit {
 
   creerLaCommande() {
     const user = this.userConnected;
-
     const menu = this.menuPanier;
 
-    // tslint:disable-next-line: prefer-for-of
-    for (let i = 0; i < this.listArticles.length; i++) {
-      // const element = this.listArticles[i];
-      // console.log(element.menu.id);
+    if (this.userConnected.wallet < this.prixTotalPanier) {
+      this.openSnackBarCagnotteTropFaible();
+    } else {
+      // tslint:disable-next-line: prefer-for-of
+      for (let i = 0; i < this.listArticles.length; i++) {
+        // const element = this.listArticles[i];
+        // console.log(element.menu.id);
 
-      this.order = {
-        status: 0,
-        creationDate: new Date(),
-        menuId: this.listArticles[i].menu.id,
-        userId: this.userConnected.id,
-        quantities: null
-      };
+        this.order = {
+          status: 0,
+          creationDate: new Date(),
+          menuId: this.listArticles[i].menu.id,
+          userId: this.userConnected.id,
+          quantities: null
+        };
 
-      this.orderService.addOrder(this.order).subscribe(
-        response => {
-          this.order = response;
-          this.openSnackBarCommander();
-          localStorage.removeItem('panier');
-          this.router.navigate(['/']);
+        this.orderService.addOrder(this.order).subscribe(
+          response => {
+            this.order = response;
+            this.openSnackBarCommander();
+            localStorage.removeItem('panier');
+            this.router.navigate(['/']);
 
-          console.log('order retour: ', this.order);
-        },
-        error => {
-          this.openSnackBarCommanderAvant();
-          console.log('Error in Order.ts ... addOrder()', error);
-          console.log('order: ', this.order);
-        }
-      );
+            console.log('order retour: ', this.order);
+          },
+          error => {
+            this.openSnackBarCommanderAvant();
+            console.log('Error in Order.ts ... addOrder()', error);
+            console.log('order: ', this.order);
+          }
+        );
+      }
     }
   }
 
@@ -133,6 +138,14 @@ export class PanierComponent implements OnInit {
 
   openSnackBarCommanderAvant() {
     this.snackbar.openFromTemplate(this.snackBarTemplateCommanderAvant, {
+      duration: 10000,
+      verticalPosition: 'bottom',
+      horizontalPosition: 'right',
+    });
+  }
+
+  openSnackBarCagnotteTropFaible() {
+    this.snackbar.openFromTemplate(this.snackBarTemplateCagnotteTropFaible, {
       duration: 10000,
       verticalPosition: 'bottom',
       horizontalPosition: 'right',
