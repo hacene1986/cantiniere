@@ -1,13 +1,13 @@
 <div class="container">
-  <h1>Editer {{ plat.label }}</h1>
-  <form (ngSubmit)="modifPlat(f)" #f="ngForm">
+  <h1>Editer {{ menu.label }}</h1>
+  <form (ngSubmit)="modifMenu(f)" #f="ngForm">
     <div class="form-group">
       <label for="recipient-name" class="col-form-label">Label:</label>
       <input
         type="text"
         class="form-control inputForm"
         name="label"
-        [ngModel]="plat.label"
+        [ngModel]="menu.label"
         ngModel
       />
     </div>
@@ -16,7 +16,7 @@
       <input
         class="form-control inputForm"
         name="description"
-        [ngModel]="plat.description"
+        [ngModel]="menu.description"
         ngModel
       />
     </div>
@@ -26,17 +26,18 @@
         type="number"
         class="form-control inputForm"
         name="priceDF"
-        [ngModel]="plat.priceDF"
+        [ngModel]="menu.priceDF"
         ngModel
       />
     </div>
     <div class="modal-footer">
-      <!--<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>-->
-      <button type="submit" class="btn btn-modifier">Modifier</button>
+      <button type="submit" class="btn btn-modifier">
+        Modifier
+      </button>
       <button
         type="button"
         class="btn btn-retour"
-        [routerLink]="['/cantinierePlat']"
+        [routerLink]="['/cantiniereMenu']"
       >
         Retour
       </button>

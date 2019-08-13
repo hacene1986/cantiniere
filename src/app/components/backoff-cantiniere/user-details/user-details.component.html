@@ -2,9 +2,12 @@
   <div class="container">
     <div class="row">
       <ul id="tabsNav" class="tabsNav nav">
-        <a class="nav-item nav-link nav-link-custom small text-uppercase col-12 col-xl-3" href="">Récapitulatif</a>
-        <a class="nav-item nav-link nav-link-custom small text-uppercase col-12 col-xl-3" href="">Plats</a>
-        <a class="nav-item nav-link nav-link-custom small text-uppercase col-12 col-xl-3" href="">Menus</a>
+        <a class="nav-item nav-link nav-link-custom small text-uppercase col-12 col-xl-3"
+          [routerLink]="['/cantiniere-recap']">Récapitulatif</a>
+        <a class="nav-item nav-link nav-link-custom small text-uppercase col-12 col-xl-3"
+          [routerLink]="['/cantiniere-plats']">Plats</a>
+        <a class="nav-item nav-link nav-link-custom small text-uppercase col-12 col-xl-3"
+          [routerLink]="['/cantiniere-menus']">Menus</a>
         <a class="nav-item nav-link nav-link-custom small text-uppercase col-12 col-xl-3"
           [routerLink]="['/user-account']">Utilisateurs</a>
       </ul>
@@ -13,7 +16,6 @@
     <div class="row top-margin">
       <div class="col-lg-6">
         <div class="row text-center">
-          <!-- <div class="col-md-6"> -->
           <div class="col-md-6">
             <h4>Prénom:</h4>
           </div>
@@ -56,16 +58,6 @@
           <div class="col-md-6">
             <h4 class="user-details">{{ user.phone }}</h4>
           </div>
-
-          <!-- <h4>Prénom: <span class="user-details">Kevin</span></h4>
-              <h4>Nom: <span class="user-details">Lorem</span></h4>
-              <h4>Adresse mail: <span class="user-details">kevin.lorem@gmail.com</span></h4> -->
-          <!-- </div> -->
-          <!-- <div class="col-md-6"> -->
-          <!-- <h4 class="user-details">Kevin</h4>
-              <h4 class="user-details">Lorem</h4>
-              <h4 class="user-details">kevin.lorem@gmail.com</h4> -->
-          <!-- </div> -->
         </div>
       </div>
       <div class="col-lg-6 text-center">
@@ -91,14 +83,56 @@
 
     <div class="row pending-order">
       <div class="col-12 text-center">
-        <h4>Commandes en cours:</h4>
+        <h4><b>Commandes en cours:</b></h4>
       </div>
     </div>
-    <div class="row order-recap" *ngFor="let order of orders">
-      <div class="col-12 text-center recap">
-        <h4 class="user-details">{{ order.creationDate }}</h4>
+
+
+    <div id="tabToday" class="tab-pane fade active show">
+      <ng-container *ngFor="let order of orders">
+        <div class="card align-top" *ngIf="order.menu != null">
+          <img class="card-img-top" src="../../../assets/menu-default.png" />
+          <div class="card-body">
+            <h5 class="card-title-custom mb-3 text-uppercase">
+              {{ order.menu.label }}
+            </h5>
+            <mat-divider> </mat-divider>
+            <br />
+            <span class="card-text align-self-start" *ngFor="let meal of order.menu.meals">
+              •
+              {{ meal.label }}
+              <br /></span>
+
+            <br />
+            <mat-divider> </mat-divider>
+            <br />
+            <span class="card-text price">{{ order.menu.priceDF }} €</span>
+          </div>
+        </div>
+        <!-- <div class="list-orders">
+      <ng-container *ngFor="let order of orders">
+      <div class="order-recap" *ngIf="order.menu != null">
+      <div class="text-center recap">
+      <h3 class="user-details">
+      {{ order.menu.label }} <br>
+      <span *ngFor="let meal of order.menu.meals"> •{{ meal.label }}<br></span>
+      </h3>
       </div>
+      </div>
+      </ng-container>
+      </div> -->
+      </ng-container>
     </div>
+    <!-- <ng-container *ngFor="let order of orders">
+      <div class="order-recap" *ngIf="order.menu != null">
+        <div class="text-center recap">
+          <h3 class="user-details">
+            {{ order.menu.label }} <br>
+            <span *ngFor="let meal of order.menu.meals"> •{{ meal.label }}<br></span>
+          </h3>
+        </div>
+      </div>
+    </ng-container> -->
   </div>
 
   <!-- MODAL CREDITER -->
@@ -118,13 +152,6 @@
         </div>
       </div>
       <div class="modal-footer crediter-footer">
-        <!-- <button
-        type="submit"
-        class="btn search-btn"
-        (click)="modal.close('Save click')"
-      >
-        NON Valider
-      </button> -->
         <button type="submit" class="btn search-btn">
           Valider
         </button>
@@ -149,13 +176,6 @@
         </div>
       </div>
       <div class="modal-footer crediter-footer">
-        <!-- <button
-        type="submit"
-        class="btn search-btn"
-        (click)="modal.close('Save click')"
-      >
-        NON Valider
-      </button> -->
         <button type="submit" class="btn search-btn">
           Valider
         </button>

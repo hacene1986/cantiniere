@@ -1,26 +1,45 @@
 <div class="container-fluid">
-  <br>
-  <br>
-  <h1 class="text-center h1 font-weight-bold text-danger">Les plats de la semaine</h1>
-  <br>
-  <br>
+  <br />
+  <br />
+  <h1 class="text-center h1 font-weight-bold text-danger">
+    Les plats de la semaine
+  </h1>
+  <br />
+  <br />
   <!-- On définit les différents boutons -->
   <ul id="tabsNav" class="tabsNav nav">
-    <li class="nav-item nav-link nav-link-custom small text-uppercase active mr-3"
-      [class.active]="viewMode == 'tabToday'" rel="tabToday" (click)="viewMode ='tabToday'">Aujourd'hui</li>
-    <li class="nav-item nav-link nav-link-custom small text-uppercase active ml-3"
-      [class.active]="viewMode == 'tabThisWeek'" rel="tabThisWeek" (click)="viewMode ='tabThisWeek'">Cette semaine</li>
+    <li
+      class="nav-item nav-link nav-link-custom small text-uppercase active mr-3"
+      [class.active]="viewMode == 'tabToday'"
+      rel="tabToday"
+      (click)="viewMode = 'tabToday'"
+    >
+      Aujourd'hui
+    </li>
+    <li
+      class="nav-item nav-link nav-link-custom small text-uppercase active ml-3"
+      [class.active]="viewMode == 'tabThisWeek'"
+      rel="tabThisWeek"
+      (click)="viewMode = 'tabThisWeek'"
+    >
+      Cette semaine
+    </li>
   </ul>
 
   <div id="tabsContent" class="tab-content tabsContent" [ngSwitch]="viewMode">
-
     <!-- Pour "tabToday", on récupère tous les plats du jour avec listPlatsToday -->
-    <div id="tabToday" *ngSwitchCase="'tabToday'" class="tab-pane fade active show">
+    <div
+      id="tabToday"
+      *ngSwitchCase="'tabToday'"
+      class="tab-pane fade active show"
+    >
       <ng-container *ngFor="let meal of listPlatsToday; let i = index">
         <div class="card align-top">
-          <img class="card-img-top" src="../../../assets/menu-default.png">
+          <img class="card-img-top" src="../../../assets/menu-default.png" />
           <div class="card-body">
-            <h4 class="card-title-custom"><b>{{ meal.label }}</b></h4>
+            <h4 class="card-title-custom">
+              <b>{{ meal.label }}</b>
+            </h4>
             <div class="body">
               <span class=" card-text price mb-3">{{ meal.priceDF }} €</span>
             </div>
@@ -30,12 +49,18 @@
     </div>
 
     <!-- Pour "tabThisWeek", on récupère tous les plats de la semaine avec listPlatsWeek -->
-    <div id="tabThisWeek" *ngSwitchCase="'tabThisWeek'" class="tab-pane fade active show">
+    <div
+      id="tabThisWeek"
+      *ngSwitchCase="'tabThisWeek'"
+      class="tab-pane fade active show"
+    >
       <ng-container *ngFor="let meal of listPlatsWeek; let i = index">
         <div class="card align-top">
-          <img class="card-img-top" src="../../../assets/menu-default.png">
+          <img class="card-img-top" src="../../../assets/menu-default.png" />
           <div class="card-body">
-            <h4 class="card-title-custom"><b>{{ meal.label }}</b></h4>
+            <h4 class="card-title-custom">
+              <b>{{ meal.label }}</b>
+            </h4>
             <div class="body">
               <span class=" card-text price mb-3">{{ meal.priceDF }} €</span>
             </div>
@@ -43,9 +68,8 @@
         </div>
       </ng-container>
     </div>
-
   </div>
-  <br><br><br>
+  <br /><br /><br />
   <ng-template #snackBarTemplateError>
     <div class="text-center text-danger2 font-weight-bold">
       ⚠️ Vérifier que l'application est lancée (Eclipse).

@@ -1,5 +1,10 @@
 <div class="container">
-  <button type="button" class="close float-right" aria-describedby="modal-title" (click)="closeModal()">
+  <button
+    type="button"
+    class="close float-right"
+    aria-describedby="modal-title"
+    (click)="closeModal()"
+  >
     <span aria-hidden="true">&times;</span>
   </button>
   <h2 class="connexion mb-4">Connexion</h2>
@@ -8,16 +13,35 @@
   <form [formGroup]="connexionForm" class="needs-validation" novalidate>
     <div class="form-group">
       <label for="inputEmail4">Email</label>
-      <input name="email" type="email" class="form-control rounded-2" id="inputEmail4" placeholder="Email"
-        formControlName="login" required />
+      <input
+        name="email"
+        type="email"
+        class="form-control rounded-2"
+        id="inputEmail4"
+        placeholder="Email"
+        formControlName="login"
+        required
+      />
     </div>
 
     <div class="form-group mb-4">
       <label for="inputPassword4">Mot de passe</label>
-      <input name="password" type="password" class="form-control rounded-2" id="inputPassword4" formControlName="pwd"
-        placeholder="Mot de passe" required />
-      <a href="#" class="card-link" style="font-size: 0.8em" (click)="openPasswordOublie(modalPassword)">Mot de passe
-        oublié ?</a>
+      <input
+        name="password"
+        type="password"
+        class="form-control rounded-2"
+        id="inputPassword4"
+        formControlName="pwd"
+        placeholder="Mot de passe"
+        required
+      />
+      <a
+        href="#"
+        class="card-link"
+        style="font-size: 0.8em"
+        (click)="openPasswordOublie(modalPassword)"
+        >Mot de passe oublié ?</a
+      >
     </div>
 
     <!-- Le modal pour l'oubli de password' -->
@@ -26,15 +50,25 @@
       <form [formGroup]="lostPasswordForm" class="needs-validation" novalidate>
         <div class="form-group">
           <div class="modal-header">
-            <h2 class="modal-title font-weight-bolder forgot" id="modal-basic-title">
+            <h2
+              class="modal-title font-weight-bolder forgot"
+              id="modal-basic-title"
+            >
               Mot de passe oublié ?
             </h2>
           </div>
           <div class="modal-body">
             <br />
             <label for="inputEmail5">Email</label>
-            <input name="email" type="email" class="form-control rounded-2" id="inputEmail5" placeholder="Email"
-              formControlName="emailLost" required />
+            <input
+              name="email"
+              type="email"
+              class="form-control rounded-2"
+              id="inputEmail5"
+              placeholder="Email"
+              formControlName="emailLost"
+              required
+            />
             <br />
           </div>
 
@@ -42,7 +76,11 @@
             <button (click)="closeModal()" class="btn btn-retour float-left">
               Retour
             </button>
-            <button type="button" class="btn btn-test float-right" (click)="modal.dismiss('cancel click')">
+            <button
+              type="button"
+              class="btn btn-test float-right"
+              (click)="modal.dismiss('cancel click')"
+            >
               Valider
             </button>
           </div>
@@ -51,8 +89,11 @@
     </ng-template>
 
     <div class="form-group">
-      <!-- <button (click)="closeModal()" class="btn btn-dark float-left buttons">Retour</button> -->
-      <button (click)="connexion()" type="submit" class="btn search-btn btn-test btn-block float-right">
+      <button
+        (click)="connexion()"
+        type="submit"
+        class="btn search-btn btn-test btn-block float-right"
+      >
         Valider
       </button>
     </div>

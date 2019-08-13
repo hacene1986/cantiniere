@@ -40,7 +40,6 @@ li a {
 }
 
 .cagnotte-border {
-  /* width: 50%; */
   border: 3px solid black;
   border-radius: 25px;
   padding: 10px;

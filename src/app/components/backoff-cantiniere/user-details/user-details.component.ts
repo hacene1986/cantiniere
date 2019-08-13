@@ -1,3 +1,5 @@
+import { Menu } from 'src/app/models/menu';
+import { MenuService } from './../../../services/menu.service';
 import { Order } from 'src/app/models/order';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
@@ -19,12 +21,14 @@ export class UserDetailsComponent implements OnInit {
   user: User;
   amount: number;
   orders: Order[];
+  menuInOrder: Menu;
 
   constructor(
     private modalService: NgbModal,
     private userService: UserService,
     private route: ActivatedRoute,
-    private orderService: OrderService
+    private orderService: OrderService,
+    private menuservice: MenuService
   ) {
     this.route.params.subscribe(params => this.id = params.id);
   }
@@ -43,48 +47,46 @@ export class UserDetailsComponent implements OnInit {
   }
 
   userDetail(id) {
-    this.userService.getUtilisateur(id).subscribe((res) => {
-      // console.log(res)
+    this.userService.getUtilisateur(id).subscribe(res => {
       this.user = res;
     });
   }
 
   crediter(form: NgForm) {
-    // let formulaire =
-    // console.log(formulaire)
-    this.amount = form.value.amount,
-      // location.search = "?amount="+this.amount
-      console.log(this.amount);
+    this.amount = form.value.amount;
 
-    this.userService.crediterUtilisateur(this.id, this.amount)
-      .subscribe(
-        walet => {
-          console.log('ok');
-          form.reset();
-          window.location.reload();
-        }
+    this.userService
+      .crediterUtilisateur(this.id, this.amount)
+      .subscribe(wallet => {
+        form.reset();
+        window.location.reload();
+      });
+  }
 
-      );
+  findOrderDetails(menuId) {
+    console.log('menuId before getMenu', menuId);
 
+    this.menuservice.getMenu(menuId).subscribe(
+      (res) => {
+        console.log('menuId après getMenu', menuId);
+        console.log('res après getMenu', menuId);
+        this.menuInOrder = res;
+      },
+      (err) => {
+        console.log('erreur findOrderDetails : ', err);
+      }
+    );
   }
 
   debiter(form: NgForm) {
-    // let formulaire =
-    // console.log(formulaire)
-    this.amount = form.value.amount,
-      // location.search = "?amount="+this.amount
-      console.log(this.amount);
+    this.amount = form.value.amount;
 
-    this.userService.debiterUtilisateur(this.id, this.amount)
-      .subscribe(
-        walet => {
-          console.log('ok');
-          form.reset();
-          window.location.reload();
-        }
-
-      );
-
+    this.userService
+      .debiterUtilisateur(this.id, this.amount)
+      .subscribe(wallet => {
+        form.reset();
+        window.location.reload();
+      });
   }
 
   getOrderFromUser() {

@@ -1,10 +1,7 @@
 import { Component, OnInit } from "@angular/core";
-import { Router } from "@angular/router";
 import { Meal } from "../../models/meal";
-//import { ActivatedRoute } from '@angular/router';
 import { PlatService } from "src/app/services/plat.service";
-import { NgForm, FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
+import { NgForm } from "@angular/forms";
 @Component({
   selector: "app-cantiniere-plat",
   templateUrl: "./cantiniere-plat.component.html",
@@ -17,11 +14,8 @@ export class CantinierePlatComponent implements OnInit {
   listPlatsWeek: Array<Meal>;
   listPlatsToday: Array<Meal>;
   id: string;
-  /// plat: Meal;
   plat: Array<Meal>;
-  constructor(private platServices: PlatService) {
-    //this.route.params.subscribe(params => this.id = params.id)
-  }
+  constructor(private platServices: PlatService) {}
 
   ngOnInit() {
     this.getAllMealsForWeek();
@@ -32,10 +26,8 @@ export class CantinierePlatComponent implements OnInit {
     this.platServices.getAllMealsForWeek(this.weekNumber).subscribe(
       response => {
         this.listPlatsWeek = response;
-        console.log("listPlatsWeek: ", this.listPlatsWeek);
       },
       error => {
-        // this.openSnackBarError();
         console.log("Error in Plats.ts ... getAllMealsForWeek()", error);
       }
     );
@@ -45,10 +37,8 @@ export class CantinierePlatComponent implements OnInit {
     this.platServices.getAllMealsForToday().subscribe(
       response => {
         this.listPlatsToday = response;
-        console.log("listPlatsToday: ", this.listPlatsToday);
       },
       error => {
-        // this.openSnackBarError();
         console.log("Error in Plats.ts ... getAllMealsForToday()", error);
       }
     );
@@ -65,7 +55,6 @@ export class CantinierePlatComponent implements OnInit {
     };
 
     this.platServices.addMeal(meal).subscribe(plat => {
-      console.log("ok");
       form.reset();
       window.location.reload();
     });
@@ -73,7 +62,6 @@ export class CantinierePlatComponent implements OnInit {
 
   deletePlat(id) {
     this.platServices.deleteMeal(id).subscribe(successCode => {
-      // console.log(this.listPlatsWeek);
       this.listPlatsWeek = this.listPlatsWeek.filter(
         listPlatsWeek => listPlatsWeek.id !== id
       );

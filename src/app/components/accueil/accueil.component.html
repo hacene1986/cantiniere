@@ -3,12 +3,20 @@
     <p class="animated fadeIn slogan"></p>
     <p class="animated fadeIn time"></p>
   </div>
-  <button type="button" class="btn btn-commander btn-outline-light" [routerLink]="['/menu']"
-    *ngIf="userConnected == '' || userConnected.isLunchLady == 0">
+  <button
+    type="button"
+    class="btn btn-commander btn-outline-light"
+    [routerLink]="['/menu']"
+    *ngIf="userConnected == '' || userConnected.isLunchLady == 0"
+  >
     Commander
   </button>
-  <button type="button" class="btn btn-admin btn-outline-light" *ngIf="userConnected.isLunchLady == 1"
-    [routerLink]="['/cantiniereRecap']">
+  <button
+    type="button"
+    class="btn btn-admin btn-outline-light"
+    *ngIf="userConnected.isLunchLady == 1"
+    [routerLink]="['/cantiniere-recap']"
+  >
     Administrer
   </button>
 </div>

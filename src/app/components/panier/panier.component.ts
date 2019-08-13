@@ -55,7 +55,6 @@ export class PanierComponent implements OnInit {
   recupererPanier() {
     if (localStorage.getItem('panier') != null) {
       this.menuPanier = JSON.parse(localStorage.getItem('panier'));
-      console.log(this.menuPanier);
     }
     // Pour supprimer 'panier' du localstorage s'il est vide
     if (JSON.stringify(this.menuPanier) === '[]') {
@@ -65,11 +64,9 @@ export class PanierComponent implements OnInit {
 
   // Méthode qui permet de supprimer un menu du panier
   supprimerMenu(i) {
-    console.log(JSON.parse(localStorage.getItem('panier')));
     const storagePanier = JSON.parse(localStorage.getItem('panier'));
     storagePanier.splice(i, 1);
     localStorage.setItem('panier', JSON.stringify(storagePanier));
-    console.log(JSON.parse(localStorage.getItem('panier')));
     this.ngOnInit();
   }
 
@@ -78,12 +75,12 @@ export class PanierComponent implements OnInit {
     if (localStorage.getItem('panier') != null) {
       this.local = localStorage.getItem('panier');
       this.listArticles = JSON.parse(this.local);
-      console.log(this.listArticles);
       this.prixTotalPanier = 0;
       // tslint:disable-next-line: prefer-for-of
       for (let i = 0; i < this.listArticles.length; i++) {
-        this.prixTotalPanier = this.prixTotalPanier + (this.listArticles[i].menu.priceDF * this.listArticles[i].quantity);
-        console.log(this.prixTotalPanier);
+        this.prixTotalPanier =
+          this.prixTotalPanier +
+          this.listArticles[i].menu.priceDF * this.listArticles[i].quantity;
       }
     }
   }

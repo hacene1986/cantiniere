@@ -1,17 +1,14 @@
 h1 {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   filter: drop-shadow(2px 2px 7px rgb(167, 167, 167));
 }
 
 .container-fluid {
-  /* margin: 10%; */
   background: #f5f5f5;
   height: calc(100vh - 93px);
 }
 
 .nav-item {
-  /* cursor: pointer; */
-  /* margin-right: 2%; */
   font-size: 1.3em;
   font-weight: 600;
   text-align: center;
@@ -23,8 +20,6 @@ h1 {
   width: 100%;
   max-width: 100%;
   margin-bottom: 37px;
-  /* background-color: #e2e2e2; */
-  /* border-radius: 10px; */
   display: inline-block;
 }
 
@@ -38,7 +33,7 @@ li {
   color: rgb(104, 104, 104);
   border-radius: 20px;
   font-weight: 600;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   text-align: center;
 }
 
@@ -61,13 +56,11 @@ li {
 }
 
 .tab-pane {
-  /* display: flex; */
   text-align: center;
 }
 
 .tab-pane.active {
   animation: appear 1.2s ease-in-out;
-  /* animation: scale-up-center 0.4s ease-in-out; */
 }
 
 @keyframes appear {
@@ -85,31 +78,22 @@ li {
   filter: drop-shadow(5px 5px 10px rgb(194, 194, 194));
   width: 16rem;
   height: -moz-fit-content;
-  /* max-width: 15rem; */
   display: inline-block;
   border-radius: 10px;
-  transition: .5s ease;
+  transition: 0.5s ease;
 }
 
-.card:hover
-{
+.card:hover {
   -webkit-transform: translateY(-1px);
   transform: translateY(-10px);
-  -webkit-box-shadow: 0 6px 25px rgba(0,0,0,.1);
-  box-shadow: 0 6px 25px rgba(0,0,0,.1);
+  -webkit-box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
 }
-
-/* .card .card-img-top:hover { */
-/* opacity: 0.2; */
-/* -webkit-filter: blur(3px) opacity(.8); */
-/* filter: blur(3px) opacity(.8); */
-/* } */
 
 .card-img-top {
   height: 150px;
   opacity: 0.85;
-  transition: .5s ease;
-  /* cursor: pointer; */
+  transition: 0.5s ease;
 }
 
 .card-title-custom {
@@ -118,11 +102,6 @@ li {
   font-weight: 500;
   min-height: 62px;
 }
-
-/* 
-.card-title-custom :hover {
-  cursor: pointer;
-} */
 
 .card-text {
   font-size: 0.9em;
@@ -149,7 +128,6 @@ li {
   padding: 9px;
   width: fit-content;
   margin: 0 auto;
-  /* margin-bottom: 15px; */
   font-size: 1.15em;
   font-weight: 700;
 }
@@ -184,7 +162,8 @@ li {
   width: 100%;
 }
 
-/* Pour le responsive */
+/* MEDIA QUERIES */
+
 @media (max-width: 768px) {
   .nav-item {
     margin-bottom: 4px;
@@ -193,6 +172,6 @@ li {
 
 @media (max-width: 438px) {
   .nav-item {
-    margin: 7px 0!important;
+    margin: 7px 0 !important;
   }
 }
