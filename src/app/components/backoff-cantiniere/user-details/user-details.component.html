@@ -2,13 +2,13 @@
   <div class="container">
     <div class="row">
       <ul id="tabsNav" class="tabsNav nav">
-        <a class="nav-item nav-link nav-link-custom small text-uppercase col-12 col-xl-3"
+        <a class="nav-item nav-link nav-link-custom small text-uppercase col-12 col-xl-3 mb-2"
           [routerLink]="['/cantiniere-recap']">Récapitulatif</a>
-        <a class="nav-item nav-link nav-link-custom small text-uppercase col-12 col-xl-3"
+        <a class="nav-item nav-link nav-link-custom small text-uppercase col-12 col-xl-3 mb-2"
           [routerLink]="['/cantiniere-plats']">Plats</a>
-        <a class="nav-item nav-link nav-link-custom small text-uppercase col-12 col-xl-3"
+        <a class="nav-item nav-link nav-link-custom small text-uppercase col-12 col-xl-3 mb-2"
           [routerLink]="['/cantiniere-menus']">Menus</a>
-        <a class="nav-item nav-link nav-link-custom small text-uppercase col-12 col-xl-3"
+        <a class="nav-item nav-link nav-link-custom small text-uppercase col-12 col-xl-3 mb-2"
           [routerLink]="['/user-account']">Utilisateurs</a>
       </ul>
     </div>
@@ -89,7 +89,7 @@
 
     <div id="tabToday" class="tab-pane fade active show">
       <ng-container *ngFor="let order of orders">
-        <div class="card align-top" *ngIf="order.menu != null">
+        <div class="card align-top" *ngIf="order.menu != null; else elseBlock">
           <img class="card-img-top" src="../../../assets/menu-default.png" />
           <div class="card-body">
             <h5 class="card-title-custom mb-3 text-uppercase">
@@ -108,6 +108,7 @@
             <span class="card-text price">{{ order.menu.priceDF }} €</span>
           </div>
         </div>
+        <ng-template #elseBlock>Aucune commande en cours</ng-template>
       </ng-container>
     </div>
   </div>
