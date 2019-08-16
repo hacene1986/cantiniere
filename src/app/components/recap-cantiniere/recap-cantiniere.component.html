@@ -24,24 +24,6 @@
     </ul>
   </div>
 </div>
-<div class="container searchContainer">
-  <div class="row mt-5 text-center">
-    <div class="col-lg-4">
-      <label class="searchName" for="">Votre recherche: </label>
-    </div>
-    <div class="col-lg-4">
-      <input
-        type="text"
-        class="searchInput"
-        size="30"
-        [(ngModel)]="searchText"
-      />
-    </div>
-    <div class="col-lg-4">
-      <button type="button" class="btn search-btn">Rechercher</button>
-    </div>
-  </div>
-</div>
 
 <div class="container-fluid">
   <ng-container *ngFor="let order of orders; let i = index">

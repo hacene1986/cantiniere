@@ -1,5 +1,6 @@
 .container-fluid {
-  height: calc(100vh - 93px);
+  background: #f5f5f5;
+  margin-bottom: 50px;
 }
 
 .panel-body {
@@ -230,10 +231,6 @@ h1 {
 
 form {
   text-align: center;
-}
-
-.container-fluid {
-  background: #f5f5f5;
 }
 
 /* MEDIA QUERIES */
