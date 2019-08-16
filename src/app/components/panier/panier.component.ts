@@ -31,6 +31,8 @@ export class PanierComponent implements OnInit {
   snackBarTemplateCommanderAvant: TemplateRef<any>;
   @ViewChild('snackBarTemplateCagnotteTropFaible')
   snackBarTemplateCagnotteTropFaible: TemplateRef<any>;
+  @ViewChild('snackBarTemplatePanierVide')
+  snackBarTemplatePanierVide: TemplateRef<any>;
 
   constructor(
     private snackbar: MatSnackBar,
@@ -48,7 +50,9 @@ export class PanierComponent implements OnInit {
       this.isAuth = false;
     }
     this.recupererPanier();
-    this.calculerTotalPanier();
+    if (this.menuPanier != null) {
+      this.calculerTotalPanier();
+    }
   }
 
   // Initialiser le panier
@@ -68,6 +72,7 @@ export class PanierComponent implements OnInit {
     storagePanier.splice(i, 1);
     localStorage.setItem('panier', JSON.stringify(storagePanier));
     this.ngOnInit();
+    this.router.navigate(['/panier']);
   }
 
   // Pour calculer le prix total du panier
@@ -91,6 +96,8 @@ export class PanierComponent implements OnInit {
 
     if (this.userConnected.wallet < this.prixTotalPanier) {
       this.openSnackBarCagnotteTropFaible();
+    } else if (this.menuPanier == null) {
+      this.openSnackBarPanierVide();
     } else {
       // tslint:disable-next-line: prefer-for-of
       for (let i = 0; i < this.listArticles.length; i++) {
@@ -142,6 +149,14 @@ export class PanierComponent implements OnInit {
   }
 
   openSnackBarCagnotteTropFaible() {
+    this.snackbar.openFromTemplate(this.snackBarTemplateCagnotteTropFaible, {
+      duration: 10000,
+      verticalPosition: 'bottom',
+      horizontalPosition: 'right',
+    });
+  }
+
+  openSnackBarPanierVide() {
     this.snackbar.openFromTemplate(this.snackBarTemplateCagnotteTropFaible, {
       duration: 10000,
       verticalPosition: 'bottom',

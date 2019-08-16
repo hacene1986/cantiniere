@@ -1,7 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { UserService } from "../../../services/user.service";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Route } from "@angular/router";
 import { NgForm } from "@angular/forms";
+import { Router } from '@angular/router';
 @Component({
   selector: "app-edit-user",
   templateUrl: "./edit-user.component.html",
@@ -10,7 +11,7 @@ import { NgForm } from "@angular/forms";
 export class EditUserComponent implements OnInit {
   id: number;
   user: Object;
-  constructor(private userService: UserService, private route: ActivatedRoute) {
+  constructor(private userService: UserService, private route: ActivatedRoute, private router: Router) {
     this.route.params.subscribe(params => (this.id = params.id));
   }
 
@@ -30,6 +31,7 @@ export class EditUserComponent implements OnInit {
       .updateUtilisateur(this.id, form.form.value)
       .subscribe(user => {
         form.reset();
+        this.router.navigate(['/my-account/' + this.id]);
       });
   }
 }
