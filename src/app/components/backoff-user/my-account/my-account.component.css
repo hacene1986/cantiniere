@@ -25,6 +25,10 @@ li a {
   padding-left: 70px;
 }
 
+.infos {
+  font-weight: bold;
+}
+
 .active {
   background-color: #f19092;
   font-weight: bold;
@@ -44,6 +48,7 @@ li a {
   border-radius: 25px;
   padding: 10px;
   margin: 0 auto;
+  font-weight: bold;
 }
 
 .my-account {
