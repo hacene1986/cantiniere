@@ -77,6 +77,7 @@ export class UserDetailsComponent implements OnInit {
     return this.orderService.getAllOrderForUser(null, null, null, this.id2).subscribe(
       (res) => {
         this.orders = res;
+        console.log(res);
       },
       (err) => {
         console.log(err);

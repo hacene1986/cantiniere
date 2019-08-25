@@ -89,7 +89,7 @@
 
     <div id="tabToday" class="tab-pane fade active show">
       <ng-container *ngFor="let order of orders">
-        <div class="card align-top" *ngIf="order.menu != null; else elseBlock">
+        <div class="card align-top" *ngIf="order.menu != null">
           <img class="card-img-top" src="../../../assets/menu-default.png" />
           <div class="card-body">
             <h5 class="card-title-custom mb-3 text-uppercase">
@@ -108,7 +108,6 @@
             <span class="card-text price">{{ order.menu.priceDF }} €</span>
           </div>
         </div>
-        <ng-template #elseBlock>Aucune commande en cours</ng-template>
       </ng-container>
     </div>
   </div>
